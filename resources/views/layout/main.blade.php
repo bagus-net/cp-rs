@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
-    <title>RSGH - Rumah Sakit Graha Hermine</title>
+    <title>PUSKESMAS CERME</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->
@@ -53,14 +53,14 @@
                             <div class="col-lg-8 col-md-12">
                                 <ul class="top-info text-center text-md-left mt-2">
                                     <li>
-                                        <p class="text-white"><i class="fas fa-headset"></i> Customer Care | <strong>(0778) 363 318</strong> </p>
+                                        <p class="text-white"><i class="fas fa-headset"></i> Customer Care | <strong>(+62 812) 3589 0101</strong> </p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                                 <ul class="mt-2">
                                     <li>
-                                        <p class="text-white"><i class="fas fa-phone"></i> Emergency | <strong>(0778) 363 127</strong> </p>
+                                        {{-- <p class="text-white"><i class="fas fa-phone"></i> Emergency | <strong>(0778) 363 127</strong> </p> --}}
                                     </li>
                                 </ul>
                             </div>
@@ -74,7 +74,7 @@
 
                             <div class="logo">
                                 <a class="d-block" href="/">
-                                    <img loading="lazy" src="{{asset('Template')}}/images/logo-gh-test.png" alt="Constra">
+                                    <img loading="lazy" src="{{asset('Template')}}/images/LOGO PKM CERME.png" alt="Constra" style="width: 80px; height: auto;">
                                 </a>
                             </div><!-- logo end -->
 
@@ -88,11 +88,11 @@
                                     <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
 
                                     <li class="nav-item"><a class="nav-link" href="/tentang">Tentang kami</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/dokter/jadwal">Jadwal Dokter</a></li>
+                                    {{-- <li class="nav-item"><a class="nav-link" href="/dokter/jadwal">Jadwal Dokter</a></li> --}}
 
                                     <li class="nav-item"><a class="nav-link" href="/services">Layanan Kami</a></li>
 
-                                    <li class="nav-item"><a class="nav-link" href="/artikel">Artikel</a></li>
+                                    {{-- <li class="nav-item"><a class="nav-link" href="/artikel">Artikel</a></li> --}}
 
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi <i class="fa fa-angle-down"></i></a>
@@ -100,13 +100,13 @@
                                             <li><a href="/dokter/profil">Profil Dokter</a></li>
                                             <li><a href="/galeri">Galeri</a></li>
                                             <li><a href="/karir">Karir</a></li>
-                                            <li><a href="/partnership">Our Partners</a></li>
+                                            {{-- <li><a href="/partnership">Our Partners</a></li> --}}
                                         </ul>
                                     </li>
 
                                     <li class="nav-item"><a class="nav-link" href="https://bit.ly/surveikepuasanpasienRSGH">Survei Kepuasan</a></li>
 
-                                    <li class="nav-item"><a class="nav-link" href="/e-library">E-Library</a></li>
+                                    {{-- <li class="nav-item"><a class="nav-link" href="/e-library">E-Library</a></li> --}}
 
                                     <li class="header-get-a-quote">
                                         <a class="btn btn-primary" href="/login">Sign In</a>
@@ -135,15 +135,15 @@
             <div class="element-container">
 
                 <span class="float-element tooltip-left" id="tooltip-linktree">
-                    <a href="https://linktr.ee/grahahermine"><i class="fas fa-link"></i></a>
+                    <a href=" "><i class="fas fa-link"></i></a>
                     <span id="tooltipText-linktree">Linktree</span>
                 </span>
                 <span class="float-element" id="tooltip-pendaftaran">
-                    <a href="https://api.whatsapp.com/send?phone=6282386828066"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=6281235890101"><i class="fab fa-whatsapp"></i></a>
                     <span id="tooltipText-pendaftaran">Pendaftran Online</span>
                 </span>
                 <span class="float-element" id="tooltip-kritik">
-                    <a href="https://api.whatsapp.com/send?phone=6285274603611"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=6281235890101"><i class="fab fa-whatsapp"></i></a>
                     <span id="tooltipText-kritik">Kritik & Saran</span>
                 </span>
             </div>
@@ -156,30 +156,30 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">Tentang Kami</h3>
-                            <img loading="lazy" width="200px" class="footer-logo" src="{{ asset('Template') }}/images/logo-gh-test-white.png" alt="Constra">
-                            <p class="text-white">Rumah Sakit Graha Hermine adalah salah satu rumah sakit swasta di Batam yang berdiri pada tanggal 3 Desember 2009.</p>
+                            <img loading="lazy" width="200px" class="footer-logo" src="{{ asset('Template') }}/images/LOGO PKM CERME.png" alt="Constra">
+                            <p class="text-white"></p>
                             <a href="/tentang" class="text-white">Selengkapnya</a>
                             <br>
                             <hr>
                             <p class="text-white">Temukan kami:</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/rumahsakitgrahahermine" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a></li>
-                                    <li><a href="https://www.youtube.com/@RumahSakitGrahaHermine" aria-label="Youtube"><i class="fab fa-youtube text-white"></i></a>
+                                    <li><a href="" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a></li>
+                                    <li><a href="" aria-label="Youtube"><i class="fab fa-youtube text-white"></i></a>
                                     </li>
-                                    <li><a href="https://www.instagram.com/rs_grahahermine/" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a></li>
+                                    <li><a href="" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a></li>
                                 </ul>
                             </div><!-- Footer social end -->
                         </div><!-- Col end -->
 
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-                            <h3 class="widget-title">Jam Operasional RS</h3>
+                            <h3 class="widget-title">Jam Operasional Puskesmas Cerme</h3>
                             <div class="working-hours text-white">
-                                RS Graha Hermine melayani psien IGD selama 24 jam dan pasien yang membutuhkan konsultasi bisa melihat jadwal dokter pada menu jadwal dokter <br>
-                                jam besuk pasien:
-                                <br><br> Senin - Minggu: <span class="text-right">10:00 - 16:00 </span>
-                                <br> Sabtu: <span class="text-right">12:00 - 15:00</span>
-                                <br> Minggu dan tanggal merah: <span class="text-right">09:00 - 12:00</span>
+                                
+                                jam Pelayanan:
+                                <br><br> Senin - Kamis: <span class="text-right">07:30 - 14:00 </span>
+                                <br> Jumat: <span class="text-right">12:00 - 15:00</span>
+                                <br> Sabtu: <span class="text-right">07:30 - 12:30</span>
                             </div>
                         </div><!-- Col end -->
 
@@ -203,7 +203,7 @@
                             <div class="copyright-info text-white text-center">
                                 <span>Copyright &copy; <script>
                                         document.write(new Date().getFullYear())
-                                    </script>, RS Graha Hermine Batam</span>
+                                    </script>, Puskesmas Cerme</span>
                             </div>
                         </div>
                     </div><!-- Row end -->

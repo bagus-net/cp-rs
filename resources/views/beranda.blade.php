@@ -54,8 +54,8 @@ $bg = asset('Template');
 <section class="social" id="social">
     <div class="row text-center">
         <div class="col-12">
-            <h2 class="section-title">RS Graha Hermine</h2>
-            <h3 class="section-sub-title">Aktivitas Terbaru</h3>
+            <h2 class="section-title">Lokasi Puskesmas Cerme</h2>
+            
         </div>
     </div>
     <div class="row ml-3 mr-3">
@@ -74,11 +74,10 @@ $bg = asset('Template');
                     <div class="col-md-8">
                         <div class="card-body">
                             <h4 class="card-title">{{$link->title}}</h4>
-                            <p class="card-text">RS. Graha Hermine | Batam
-                                Komp. Ruko Asih Raya, Blok B No. 9-15
-                                Jl. Letjend Suprapto, Buliang
-                                Kec. Batu Aji, Kota Batam
-                                Kepulauan Riau 29424
+                            <p class="card-text">Lokasi Puskesmas Cerme
+                                Jl. Contoh Nomor 123
+                                Kota Contoh
+                                Provinsi Contoh 12345
                             <div class="g-ytsubscribe" data-channelid="UCrVa5dDtzD7ARnE3TqN4Wig" data-layout="default" data-count="default"></div>
                         </div>
                     </div>
@@ -94,7 +93,7 @@ $bg = asset('Template');
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">RS Graha Hermine</h2>
+                <h2 class="section-title">Puskesmas Cerme</h2>
                 <h3 class="section-sub-title">Kenapa Kami?</h3>
             </div>
         </div>
@@ -125,7 +124,7 @@ $bg = asset('Template');
             </div><!-- Col end -->
 
             <div class="col-lg-4 text-center">
-                <img loading="lazy" class="img-fluid" src="template/images/services/service-center.jpg" alt="service-avater-image">
+                <img loading="lazy" class="img-fluid" src="template/images/services/dokter umum 2.png" alt="service-avater-image">
             </div><!-- Col end -->
 
             <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
@@ -159,7 +158,7 @@ $bg = asset('Template');
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h2 class="section-title">RS Graha Hermine</h2>
+                <h2 class="section-title">Puskesmas Cerme</h2>
                 <h3 class="section-sub-title">Gallery</h3>
             </div>
         </div>
@@ -208,7 +207,7 @@ $bg = asset('Template');
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h2 class="section-title">RS Graha Hermine</h2>
+                <h2 class="section-title">Puskesmas Cerme</h2>
                 <h3 class="section-sub-title">Partner kami</h3>
             </div>
         </div>
@@ -256,7 +255,7 @@ $bg = asset('Template');
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">RS Graha hermine</h2>
+                <h2 class="section-title">Puskesmas Cerme</h2>
                 <h3 class="section-sub-title">Artikel Terbaru</h3>
             </div>
         </div>

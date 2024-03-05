@@ -34,7 +34,7 @@
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <a href="/" class="mt-2 w-100 btn btn-lg btn-secondary"> Cancel </a>
-        <p class="mt-5 mb-3 text-muted">&copy; RS Graha Hermine</p>
+        <p class="mt-5 mb-3 text-muted">&copy; Pusura Cerme</p>
     </form>
 </main>
 @endsection

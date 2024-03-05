@@ -38,7 +38,7 @@ $bg = asset('Template');
             <div class="row">
                 <div class="col-md-8 text-center text-md-left">
                     <div class="call-to-action-text">
-                        <h3 class="action-title">"Kesehatan Anda adalah propritas kami"</h3>
+                        <h3 class="action-title">"Pelayanan Terbaik dari Hati"</h3>
                     </div>
                 </div><!-- Col end -->
                 <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
@@ -55,7 +55,7 @@ $bg = asset('Template');
     <div class="row text-center">
         <div class="col-12">
             <h2 class="section-title">Lokasi Puskesmas Cerme</h2>
-            
+
         </div>
     </div>
     <div class="row ml-3 mr-3">

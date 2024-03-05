@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('TemplateAdmin')}}/assets/img/favicon.png" rel="icon">
-    <link href="{{asset('TemplateAdmin')}}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{asset('TemplateAdmin')}}/assets/img/LOGO PKM CERME.png" rel="icon">
+    <link href="{{asset('TemplateAdmin')}}/assets/img/LOGO PKM CERME.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

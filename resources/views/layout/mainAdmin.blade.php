@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('Template')}}/images/favicon.png" rel="icon">
-    <link href="{{asset('TemplateAdmin')}}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{asset('Template')}}/images/LOGO PKM CERME.png" rel="icon">
+    <link href="{{asset('TemplateAdmin')}}/assets/img/LOGO PKM CERME.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -203,10 +203,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            &copy; Copyright <strong><span>Sobat Web</span></strong>. All Rights Reserved
         </div>
     </footer><!-- End Footer -->
 

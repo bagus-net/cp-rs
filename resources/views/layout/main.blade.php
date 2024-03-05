@@ -18,7 +18,7 @@
 
     <!-- Favicon
 ================================================== -->
-    <link rel="icon" type="image/png" href="{{asset('Template')}}/images/favicon.png">
+    <link rel="icon" type="image/png" href="{{asset('Template')}}/images/LOGO PKM CERME.png">
 
     <!-- CSS
 ================================================== -->
@@ -108,9 +108,9 @@
 
                                     {{-- <li class="nav-item"><a class="nav-link" href="/e-library">E-Library</a></li> --}}
 
-                                    <li class="header-get-a-quote">
+                                    <!-- <li class="header-get-a-quote">
                                         <a class="btn btn-primary" href="/login">Sign In</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </nav>
@@ -134,10 +134,10 @@
             <img src="{{asset('Template')}}/images/icon-customer.png" class="floating-button text-dark">
             <div class="element-container">
 
-                <span class="float-element tooltip-left" id="tooltip-linktree">
+                <!-- <span class="float-element tooltip-left" id="tooltip-linktree">
                     <a href=" "><i class="fas fa-link"></i></a>
                     <span id="tooltipText-linktree">Linktree</span>
-                </span>
+                </span> -->
                 <span class="float-element" id="tooltip-pendaftaran">
                     <a href="https://api.whatsapp.com/send?phone=6281235890101"><i class="fab fa-whatsapp"></i></a>
                     <span id="tooltipText-pendaftaran">Pendaftran Online</span>
@@ -158,13 +158,35 @@
                             <h3 class="widget-title">Tentang Kami</h3>
                             <img loading="lazy" width="200px" class="footer-logo" src="{{ asset('Template') }}/images/LOGO PKM CERME.png" alt="Constra">
                             <p class="text-white"></p>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="text-white">VISI</h5>
+                                    <p class="text-white">Mewujudkan Masyarakat di wilayah Kerja Puskesmas Cerme yang Sehat dan Sejahtera</p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="text-white">MISI</h5>
+                                    <ul class="text-white">
+                                        <li>Meningkatkan kualitas pelayanan kesehatan ibu hamil, ibu bersalin, bayi baru lahir dan
+                                            balita.</li>
+                                        <li>Meningkatkan kualitas pelayanan poli gizi, pemantauan status gizi masyarakat dan
+                                            penanggulangan stunting.</li>
+                                        <li>Meningkatkan cakupan TB, HIV, Hipertensi, Diabetes Mellitus, Usia Produktif, dan
+                                            pelayanan ODGJ Berat serta penyakit menular dan tidak menular lainnya.</li>
+                                        <li>Meningkatkan pemenuhan dan manajemen sarana, alat kesehatan, obat-obatan dan bahan habis
+                                            pakai serta pemenuhan standar akreditasi puskesmas.</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <a href="/tentang" class="text-white">Selengkapnya</a>
                             <br>
                             <hr>
                             <p class="text-white">Temukan kami:</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a></li>
+                                    <li><a href="https://web.facebook.com/puskesmas.cerme?locale=id_ID" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a></li>
                                     <li><a href="" aria-label="Youtube"><i class="fab fa-youtube text-white"></i></a>
                                     </li>
                                     <li><a href="" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a></li>
@@ -175,7 +197,7 @@
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
                             <h3 class="widget-title">Jam Operasional Puskesmas Cerme</h3>
                             <div class="working-hours text-white">
-                                
+
                                 jam Pelayanan:
                                 <br><br> Senin - Kamis: <span class="text-right">07:30 - 14:00 </span>
                                 <br> Jumat: <span class="text-right">12:00 - 15:00</span>

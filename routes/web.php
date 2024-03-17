@@ -25,6 +25,31 @@ use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\KategoriGaleriController;
 use App\Http\Controllers\YtLinkController;
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
+
+//Login Minible
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/auth', [AuthController::class, 'auth']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
+//Admin Minible
+//Page Dashboard
+Route::get('/dashboard', [DashboardController::class, 'ShowChart'])->name('dashboard');
+
+//Page User
+Route::get('user', [UserController::class, 'index'])->name('user.list');
+Route::get('user/show/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('user/add', [UserController::class, 'create'])->name('user.create');
+Route::post('user/store', [UserController::class, 'store'])->name('user.add');
+Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.update');
+Route::get('user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+
+//------------------------------------------------------------------------------------------------------//
+
 // halaman guest
 Route::get('/', [MainController::class, 'index'])->middleware('guest');
 Route::get('/tentang', [MainController::class, 'tentang'])->middleware('guest');
@@ -63,9 +88,9 @@ Route::get('/partnership', [MainController::class, 'partnerIndex'])->middleware(
 // <-- Bagian Admin -->
 
 // form login dan logout
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'auth']);
-Route::post('/logout', [LoginController::class, 'logout']);
+// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [LoginController::class, 'auth']);
+// Route::post('/logout', [LoginController::class, 'logout']);
 
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');

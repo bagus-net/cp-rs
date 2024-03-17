@@ -2,7 +2,7 @@
 
 @section('content')
 <main class="form-signin">
-    <form action="/login" method="post">
+    <form action="/auth" method="post">
         @csrf
         <img class="mb-4" src="Template/images/LOGO PKM CERME.png" alt="" width="200">
         <h1 class="h3 mb-3 fw-normal">Form Login</h1>

@@ -32,11 +32,11 @@ use App\Http\Controllers\Admin\DashboardController;
 //Login Minible
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth']);
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 //Admin Minible
 //Page Dashboard
-Route::get('/dashboard', [DashboardController::class, 'ShowChart'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 //Page User
 Route::get('user', [UserController::class, 'index'])->name('user.list');
@@ -93,7 +93,7 @@ Route::get('/partnership', [MainController::class, 'partnerIndex'])->middleware(
 // Route::post('/logout', [LoginController::class, 'logout']);
 
 
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+// Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 
 // Blog
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth');

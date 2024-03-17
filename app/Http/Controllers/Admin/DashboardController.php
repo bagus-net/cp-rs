@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function ShowChart(Request $request)
+    public function index(Request $request)
     {
         $dokter = Dokter::all();
         $blog = Blog::all();

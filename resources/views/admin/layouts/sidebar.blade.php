@@ -5,19 +5,19 @@
     <div class="navbar-brand-box">
         <a href="{{url('dashboard')}}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/images/mgm.png') }}" alt="" height="30">
+                <img src="{{ URL::asset('minible/assets/images/LOGO PKM CERME.png') }}" alt="" height="30">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('/assets/images/mgm-light.png') }}" alt="" height="40">
+                <img src="{{ URL::asset('minible/assets/images/LOGO PKM CERME.png') }}" alt="" height="40">
             </span>
         </a>
 
         <a href="{{url('dashboard')}}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/images/mgm.png') }}" alt="" height="30">
+                <img src="{{ URL::asset('minible/assets/images/LOGO PKM CERME.png') }}" alt="" height="30">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('/assets/images/mgm-dard.png') }}" alt="" height="40">
+                <img src="{{ URL::asset('minible/assets/images/LOGO PKM CERME.png') }}" alt="" height="40">
             </span>
         </a>
     </div>
@@ -46,44 +46,44 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-grid-alt"></i>
                         @if (Auth::user()->level == '2' OR Auth::user()->level == '1')
-                            @if ($countlistmg > 0)
-                                <span class="badge rounded-pill bg-info float-end"> {{ $countlistmg }}</span>
-                            @endif
+                        @if ($countlistmg > 0)
+                        <span class="badge rounded-pill bg-info float-end"> {{ $countlistmg }}</span>
                         @endif
-                        
+                        @endif
+
                         @if (Auth::user()->level == '4' OR Auth::user()->level == '1')
-                            @if ($countlistqc > 0)
-                                <span class="badge rounded-pill bg-danger float-end"> {{ $countlistqc }}</span>
-                            @endif
+                        @if ($countlistqc > 0)
+                        <span class="badge rounded-pill bg-danger float-end"> {{ $countlistqc }}</span>
                         @endif
-                        <span>@lang('Transaksi')</span> 
+                        @endif
+                        <span>@lang('Transaksi')</span>
                     </a>
                     @if (Auth::user()->level == '3' OR Auth::user()->level == '1')
-                        <ul class="sub-menu" aria-expanded="true">
-                            <li><a href="{{ url('/ftkp/add') }}">@lang('Create FTKP')</a></li>
-                        </ul>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('/ftkp/add') }}">@lang('Create FTKP')</a></li>
+                    </ul>
                     @endif
                     @if (Auth::user()->level == '4' OR Auth::user()->level == '1')
-                        <ul class="sub-menu" aria-expanded="true">
-                            <li>
-                                <a href="{{ url('/qc') }}">@lang('List Approve QC')
-                                    @if ($countlistqc > 0)
-                                        <span class="badge rounded-pill bg-danger float-end">{{ $countlistqc }}</span>
-                                    @endif
-                                </a>
-                            </li> 
-                        </ul>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="{{ url('/qc') }}">@lang('List Approve QC')
+                                @if ($countlistqc > 0)
+                                <span class="badge rounded-pill bg-danger float-end">{{ $countlistqc }}</span>
+                                @endif
+                            </a>
+                        </li>
+                    </ul>
                     @endif
                     @if (Auth::user()->level == '2' OR Auth::user()->level == '1')
-                        <ul class="sub-menu" aria-expanded="true">
-                            <li>
-                                <a href="{{ url('/manager') }}">@lang('List Approve Manager')
-                                    @if ($countlistmg > 0)
-                                        <span class="badge rounded-pill bg-info float-end">{{ $countlistmg }}</span>
-                                    @endif
-                                </a>
-                            </li>
-                        </ul>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="{{ url('/manager') }}">@lang('List Approve Manager')
+                                @if ($countlistmg > 0)
+                                <span class="badge rounded-pill bg-info float-end">{{ $countlistmg }}</span>
+                                @endif
+                            </a>
+                        </li>
+                    </ul>
                     @endif
                 </li>
 
@@ -98,7 +98,7 @@
                     </ul>
                 </li>
 
-                
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-server"></i>
@@ -107,25 +107,26 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href={{ url('/ftkp') }}>@lang('Data FKTP')</a></li>
                         @if (Auth::user()->level == '1')
-                        {{-- <li><a href={{ url('/spk') }}>@lang('Data Order Produksi')</a></li>
-                        <li><a href={{ url('/cust') }}>@lang('Data Master Customer')</a></li>
-                        <li><a href={{ url('/kategori') }}>@lang('Data Master Kategori')</a></li> --}}
-                        @endif
-                    </ul>
+                        {{-- <li><a href={{ url('/spk') }}>@lang('Data Order Produksi')</a>
                 </li>
-                
-                @if (Auth::user()->level == '1')
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-user-circle"></i>
-                        <span>@lang('Users Management')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{ route('user.list') }}>@lang('User')</a></li>
-                        <li><a href={{ route('role.list') }}>@lang('Roles')</a></li>
-                    </ul>
-                </li>
+                <li><a href={{ url('/cust') }}>@lang('Data Master Customer')</a></li>
+                <li><a href={{ url('/kategori') }}>@lang('Data Master Kategori')</a></li> --}}
                 @endif
+            </ul>
+            </li>
+
+            @if (Auth::user()->level == '1')
+            <li>
+                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <i class="uil-user-circle"></i>
+                    <span>@lang('Users Management')</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="true">
+                    <li><a href={{ route('user.list') }}>@lang('User')</a></li>
+                    <li><a href={{ route('role.list') }}>@lang('Roles')</a></li>
+                </ul>
+            </li>
+            @endif
             </ul>
         </div>
         <!-- Sidebar -->

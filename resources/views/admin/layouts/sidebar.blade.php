@@ -32,101 +32,32 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">@lang('translation.Menu')</li>
+                <li class="menu-title">@lang('Menu')</li>
 
                 <li>
                     {{-- <a href="{{url('index')}}"> --}}
                     <a href="{{url('/dashboard')}}">
                         <i class="uil-home-alt"></i>
-                        <span>@lang('translation.Dashboard')</span>
+                        <span>@lang('Dashboard')</span>
                     </a>
                 </li>
-                {{-- SIDEBAR SPK --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-grid-alt"></i>
-                        @if (Auth::user()->level == '2' OR Auth::user()->level == '1')
-                        @if ($countlistmg > 0)
-                        <span class="badge rounded-pill bg-info float-end"> {{ $countlistmg }}</span>
-                        @endif
-                        @endif
-
-                        @if (Auth::user()->level == '4' OR Auth::user()->level == '1')
-                        @if ($countlistqc > 0)
-                        <span class="badge rounded-pill bg-danger float-end"> {{ $countlistqc }}</span>
-                        @endif
-                        @endif
-                        <span>@lang('Transaksi')</span>
+                        <i class="uil-blogger-alt"></i>
+                        <span>@lang('Menu')</span>
                     </a>
-                    @if (Auth::user()->level == '3' OR Auth::user()->level == '1')
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="{{ url('/ftkp/add') }}">@lang('Create FTKP')</a></li>
+                        <li><a href={{ route('banner.list') }}>@lang('Banner')</a></li>
                     </ul>
-                    @endif
-                    @if (Auth::user()->level == '4' OR Auth::user()->level == '1')
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="{{ url('/qc') }}">@lang('List Approve QC')
-                                @if ($countlistqc > 0)
-                                <span class="badge rounded-pill bg-danger float-end">{{ $countlistqc }}</span>
-                                @endif
-                            </a>
-                        </li>
-                    </ul>
-                    @endif
-                    @if (Auth::user()->level == '2' OR Auth::user()->level == '1')
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="{{ url('/manager') }}">@lang('List Approve Manager')
-                                @if ($countlistmg > 0)
-                                <span class="badge rounded-pill bg-info float-end">{{ $countlistmg }}</span>
-                                @endif
-                            </a>
-                        </li>
-                    </ul>
-                    @endif
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-task  "></i>
-                        <span>@lang('Report')</span>
+                        <i class="uil-user-circle"></i>
+                        <span>@lang('Users Management')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{ url('/history') }}>@lang('History')</a></li>
-                        <li><a href={{ url('/laporanftkp') }}>@lang('Laporan FTKP')</a></li>
                     </ul>
                 </li>
-
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-server"></i>
-                        <span>@lang('Daftar')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{ url('/ftkp') }}>@lang('Data FKTP')</a></li>
-                        @if (Auth::user()->level == '1')
-                        {{-- <li><a href={{ url('/spk') }}>@lang('Data Order Produksi')</a>
-                </li>
-                <li><a href={{ url('/cust') }}>@lang('Data Master Customer')</a></li>
-                <li><a href={{ url('/kategori') }}>@lang('Data Master Kategori')</a></li> --}}
-                @endif
-            </ul>
-            </li>
-
-            @if (Auth::user()->level == '1')
-            <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="uil-user-circle"></i>
-                    <span>@lang('Users Management')</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="true">
-                    <li><a href={{ route('user.list') }}>@lang('User')</a></li>
-                    <li><a href={{ route('role.list') }}>@lang('Roles')</a></li>
-                </ul>
-            </li>
-            @endif
             </ul>
         </div>
         <!-- Sidebar -->

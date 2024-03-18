@@ -7,7 +7,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User_Controller;
-use App\Http\Controllers\BannerController;
+// use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\GaleriController;
@@ -28,6 +28,7 @@ use App\Http\Controllers\YtLinkController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BannerController;
 
 //Login Minible
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -37,6 +38,15 @@ Route::get('/logout', [AuthController::class, 'logout']);
 //Admin Minible
 //Page Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+//Page Banner
+Route::get('banner', [BannerController::class, 'index'])->name('banner.list');
+Route::get('banner/show/{id}', [BannerController::class, 'show'])->name('banner.show');
+Route::get('banner/add', [BannerController::class, 'create'])->name('banner.create');
+Route::post('banner/store', [BannerController::class, 'store'])->name('banner.add');
+Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('banner.edit');
+Route::post('banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
+Route::get('banner/delete/{id}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
 //Page User
 Route::get('user', [UserController::class, 'index'])->name('user.list');
@@ -110,7 +120,7 @@ Route::post('/blogCategory', [BlogCategory::class, 'store']);
 Route::resource('/dashboard/user', User_Controller::class)->middleware('auth');
 
 // banner
-Route::resource('/dashboard/banner', BannerController::class)->middleware('auth');
+// Route::resource('/dashboard/banner', BannerController::class)->middleware('auth');
 
 // Dokter
 Route::resource('/dashboard/dokter', DokterController::class)->middleware('auth');

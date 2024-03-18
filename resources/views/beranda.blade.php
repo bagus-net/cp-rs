@@ -22,7 +22,7 @@ $bg = asset('Template');
     </div>
 
     @foreach($banners as $banner)
-    <div class="banner-carousel-item" style="background-image:url({{ asset('images/banner-image/' . $banner->image) }})"></div>
+    <div class="banner-carousel-item" style="background-image:url({{ asset('storage/banner-image/' . $banner->image) }})"></div>
     @endforeach
 </div>
 

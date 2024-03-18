@@ -262,7 +262,7 @@ $bg = asset('Template');
                 <div class="latest-post">
                     <div class="latest-post-media">
                         <a href="/artikel/{{$post->slug}}" class="latest-post-img">
-                            <img loading="lazy" class="img-fluid" src="{{asset('images/blog-image/'.$post->image)}}" alt="img">
+                            <img loading="lazy" class="img-fluid" src="{{asset('storage/blog-image/'.$post->slug. '/' .$post->image)}}" alt="img">
                         </a>
                     </div>
                     <div class="post-body">

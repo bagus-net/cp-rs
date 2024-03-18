@@ -13,11 +13,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Kategori</h2>
+            <h2>Create Blog</h2>
         </div>
     </div>
 </div>
-
 
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -34,21 +33,41 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('banner.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('blog.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     {{ csrf_field() }}
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Banner Title : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="banner_title" value="{{ old('banner_title') }}" id="example-text-input" placeholder="Banner Title">
+                            <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug" readonly>
                         </div>
                         <br><br>
-                        <label for="image" class="form-label">Banner Image</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Blog Title : </label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="title" value="{{ old('title') }}" id="example-text-input" placeholder="Blog Title">
+                        </div>
+                        <br><br>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Category : </label>
+                        <div class="col-md-10">
+                            <select name="category_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
+                                @foreach ($res_kategori_post as $item)
+                                <option value="{{$item->id}}">{{$item->kategori}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <br><br>
+                        <label for="image" class="form-label">Image</label>
                         <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
                         <small class="text-muted">Ukuran file maksimal: 2MB</small>
                         <div id="fileSizeError" class="text-danger"></div>
+                        <br><br>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Konten : </label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Konten">
+                            <trix-editor input="body"></trix-editor>
+                        </div>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('banner.list') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('blog.list') }}"> Back</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

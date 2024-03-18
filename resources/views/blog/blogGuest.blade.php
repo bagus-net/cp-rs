@@ -25,7 +25,7 @@
                 @foreach($posts as $post)
                 <div class="post">
                     <div class="post-media post-image">
-                        <img loading="lazy" src="{{asset('images/blog-image/'.$post->image)}}" class="img-fluid" alt="post-image">
+                        <img loading="lazy" src="{{asset('storage/blog-image/'.$post->slug. '/' .$post->image)}}" class="img-fluid" alt="post-image">
                     </div>
 
 
@@ -73,7 +73,7 @@
                             @foreach($posts as $post)
                             <li class="d-flex align-items-center">
                                 <div class="posts-thumb">
-                                    <a href="/artikel/{{$post->slug}}"><img loading="lazy" alt="img" style="height: 50px; Width: 80px;" src="{{ asset('images/blog-image/'.$post->image) }}"></a>
+                                    <a href="/artikel/{{$post->slug}}"><img loading="lazy" alt="img" style="height: 50px; Width: 80px;" src="{{ asset('storage/blog-image/'.$post->slug. '/' .$post->image) }}"></a>
                                 </div>
                                 <div class="post-info">
                                     <h4 class="entry-title">

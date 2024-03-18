@@ -9,7 +9,7 @@
 
             <div class="post-content post-single">
                 <div class="post-media post-image">
-                    <img loading="lazy" src="{{asset('images/blog-image/'.$data->image)}}" class="img-fluid mt-3" alt="post-image">
+                    <img loading="lazy" src="{{asset('storage/blog-image/'.$data->slug. '/' .$data->image)}}" class="img-fluid mt-3" alt="post-image">
                 </div>
 
                 <div class="post-body">
@@ -42,7 +42,7 @@
                         @foreach($recents as $post)
                         <li class="d-flex align-items-center">
                             <div class="posts-thumb">
-                                <a href="/artikel/{{$post->slug}}"><img loading="lazy" alt="img" src="{{ asset('images/blog-image/'.$post->image) }}" style="height: 50px; Width: 80px;"></a>
+                                <a href="/artikel/{{$post->slug}}"><img loading="lazy" alt="img" src="{{ asset('storage/blog-image/'.$post->slug. '/' .$post->image) }}" style="height: 50px; Width: 80px;"></a>
                             </div>
                             <div class="post-info">
                                 <h4 class="entry-title">

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogCategory;
-use App\Http\Controllers\BlogController;
+// use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogController;
 
 //Login Minible
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -56,6 +57,15 @@ Route::post('user/store', [UserController::class, 'store'])->name('user.add');
 Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.update');
 Route::get('user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+//Page Blog
+Route::get('blog', [BlogController::class, 'index'])->name('blog.list');
+Route::get('blog/show/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('blog/add', [BlogController::class, 'create'])->name('blog.create');
+Route::post('blog/store', [BlogController::class, 'store'])->name('blog.add');
+Route::get('blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+Route::post('blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
+Route::get('blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
 
 //------------------------------------------------------------------------------------------------------//
@@ -106,9 +116,9 @@ Route::get('/partnership', [MainController::class, 'partnerIndex'])->middleware(
 // Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 
 // Blog
-Route::get('/blog', [BlogController::class, 'index'])->middleware('auth');
-Route::get('/blogCreate', [BlogController::class, 'create'])->middleware('auth');
-Route::post('/blogCreate', [BlogController::class, 'store']);
+// Route::get('/blog', [BlogController::class, 'index'])->middleware('auth');
+// Route::get('/blogCreate', [BlogController::class, 'create'])->middleware('auth');
+// Route::post('/blogCreate', [BlogController::class, 'store']);
 
 // ..............
 Route::resource('/dashboard/blog', BlogController::class)->middleware('auth');

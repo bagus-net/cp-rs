@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <a class="btn btn-success" href="{{ route('foto.create') }}">Create Galeri</a>
-
+                    <a class="btn btn-success" href="{{ route('fotocategory.create') }}">Create Category Galeri</a>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <a class="btn btn-success" href="{{ route('blog.create') }}">Create Blog</a>
-
+                    <a class="btn btn-success" href="{{ route('blogcategory.create') }}">Create Category Blog</a>
                 </div>
             </div>
         </div>

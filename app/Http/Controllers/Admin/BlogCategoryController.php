@@ -4,82 +4,45 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\PostCategory;
 
 class BlogCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private function generateBlogCategoryCode()
+    {
+        $latestBlog = PostCategory::latest('slug')->first();
+
+        if (!$latestBlog) {
+            return 'PC001';
+        }
+
+        $lastNumber = intval(substr($latestBlog->slug, 2));
+        $newNumber = $lastNumber + 1;
+
+        return 'PC' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+    }
+
     public function index()
     {
-        //
+        $slug = $this->generateBlogCategoryCode();
+        return view('admin.blog.add-blogcategory', compact('slug'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $validatedData = $request->validate(
+            [
+                'kategori' => 'required',
+                'slug' => 'required',
+            ]
+        );
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        PostCategory::create($validatedData);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()
+            ->route('blog.list')->with("success-add", "Data successfully added.");
+        return redirect()
+            ->route('blog.list')->with("failed", "Data failed to added.");
     }
 }

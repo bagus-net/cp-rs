@@ -30,7 +30,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('blog.update',$data->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('blog.update',$find->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     @csrf
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>

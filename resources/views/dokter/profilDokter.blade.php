@@ -50,7 +50,7 @@ $bgImage3 = asset('Template/images/slider-layanan/bg3.jpg');
 <div class="container mt-4">
     <div class="row text-center">
         <div class="col-12">
-            <h2 class="section-title">RS Graha Hermine</h2>
+            <h2 class="section-title">Puskesmas Cerme</h2>
             <h3 class="section-sub-title">Dokter Kami</h3>
         </div>
     </div>
@@ -62,7 +62,7 @@ $bgImage3 = asset('Template/images/slider-layanan/bg3.jpg');
                 <div class="item">
                     <div class="ts-team-wrapper">
                         <div class="team-img-wrapper">
-                            <img loading="lazy" class="w-100" src="{{ asset('images/dokter-image/'.$dokter->image) }}" alt="team-img">
+                            <img loading="lazy" class="w-100" src="{{ asset('storage/dokter-image/'.$dokter->slug. '/' .$dokter->image) }}" alt="team-img">
                         </div>
                         <div class="ts-team-content">
                             <p class="text-white"> <Strong>{{$dokter->nama}}</Strong></p>

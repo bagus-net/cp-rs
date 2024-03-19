@@ -49,6 +49,8 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href={{ route('banner.list') }}>@lang('Banner')</a></li>
                         <li><a href={{ route('blog.list') }}>@lang('Blog')</a></li>
+                        <li><a href={{ route('foto.list') }}>@lang('Galeri')</a></li>
+                        <li><a href={{ route('dokter.list') }}>@lang('Dokter')</a></li>
                     </ul>
                 </li>
                 <li>

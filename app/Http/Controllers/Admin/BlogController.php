@@ -27,13 +27,13 @@ class BlogController extends Controller
         $latestBlog = Blog::latest('slug')->first();
 
         if (!$latestBlog) {
-            return 'bl001';
+            return 'BL001';
         }
 
         $lastNumber = intval(substr($latestBlog->slug, 2));
         $newNumber = $lastNumber + 1;
 
-        return 'bl' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        return 'BL' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
     }
 
     public function index()

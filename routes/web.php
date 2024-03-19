@@ -8,9 +8,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User_Controller;
 // use App\Http\Controllers\BannerController;
-use App\Http\Controllers\DokterController;
+// use App\Http\Controllers\DokterController;
 use App\Http\Controllers\FolderController;
-use App\Http\Controllers\GaleriController;
+// use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LamaranController;
 use App\Http\Controllers\ElibraryController;
 use App\Http\Controllers\LowonganController;
@@ -30,6 +30,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\GaleriController;
+use App\Http\Controllers\Admin\DokterController;
 
 //Login Minible
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -66,6 +68,21 @@ Route::post('blog/store', [BlogController::class, 'store'])->name('blog.add');
 Route::get('blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
 Route::post('blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
 Route::get('blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
+//Page Galeri
+Route::get('foto', [GaleriController::class, 'index'])->name('foto.list');
+Route::get('foto/add', [GaleriController::class, 'create'])->name('foto.create');
+Route::post('foto/store', [GaleriController::class, 'store'])->name('foto.add');
+Route::get('foto/delete/{id}', [GaleriController::class, 'destroy'])->name('foto.destroy');
+
+//Page Dokter
+Route::get('dokter', [DokterController::class, 'index'])->name('dokter.list');
+Route::get('dokter/show/{id}', [DokterController::class, 'show'])->name('dokter.show');
+Route::get('dokter/add', [DokterController::class, 'create'])->name('dokter.create');
+Route::post('dokter/store', [DokterController::class, 'store'])->name('dokter.add');
+Route::get('dokter/edit/{id}', [DokterController::class, 'edit'])->name('dokter.edit');
+Route::post('dokter/update/{id}', [DokterController::class, 'update'])->name('dokter.update');
+Route::get('dokter/delete/{id}', [DokterController::class, 'destroy'])->name('dokter.destroy');
 
 
 //------------------------------------------------------------------------------------------------------//
@@ -160,7 +177,7 @@ Route::resource('/dashboard/layananImage', LayananImageController::class)->middl
 Route::get('/dashboard/layanan/detail/{layanan_poliklinik}', [LayananDetailController::class, 'index'])->middleware('auth');
 
 // galeri
-Route::resource('/dashboard/galeri', GaleriController::class)->middleware('auth');
+// Route::resource('/dashboard/galeri', GaleriController::class)->middleware('auth');
 Route::resource('/dashboard/galeri-kategori', KategoriGaleriController::class)->middleware('auth');
 
 // e-library

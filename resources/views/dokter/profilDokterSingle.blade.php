@@ -7,7 +7,7 @@
             <div class="col">
                 <div class="row g-0">
                     <div class="col-md-3">
-                        <img src="{{asset('images/dokter-image/'.$data->image)}}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{asset('storage/dokter-image/'.$data->slug. '/' .$data->image)}}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-9">
                         <div class="card-body">

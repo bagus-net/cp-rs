@@ -43,7 +43,7 @@
                         <tbody>
                             @foreach($dokters as $data)
                             <tr>
-                                <th><img src="{{ asset('images/dokter-image/'.$data->image) }}" width="150"></th>
+                                <th><img src="{{ asset('storage/dokter-image/'.$data->slug. '/' .$data->image) }}" width="150"></th>
                                 <th>{{ $data->nama }}</th>
                                 <td>{{ $data->poliklinik->poliklinik }}</td>
                                 <td><a class="btn btn-primary" href="/dokter/profil/{{$data->slug}}">Lihat Jadwal <i class="fas fa-arrow-right"></i></a></td>

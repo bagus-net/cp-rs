@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <div class="row text-center">
         <div class="col-12">
-            <h2 class="section-title">RS Graha Hermine</h2>
+            <h2 class="section-title">Puskesmas Cerme</h2>
             <h3 class="section-sub-title">Layanan Poliklinik</h3>
         </div>
     </div>

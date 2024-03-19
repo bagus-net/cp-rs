@@ -35,8 +35,8 @@
 
                     <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;Poliklinik&quot;]">
                         <div class="project-img-container">
-                            <a class="gallery-popup" href="{{ asset('images/galeri-image/'.$galeri->image) }}" aria-label="project-img">
-                                <img class="img-fluid" src="{{ asset('images/galeri-image/'.$galeri->image) }}" alt="project-img" style="max-height:350px ; overflow:hidden;">
+                            <a class="gallery-popup" href="{{ asset('storage/galeri-image/'.$galeri->slug. '/' . $galeri->image) }}" aria-label="project-img">
+                                <img class="img-fluid" src="{{ asset('storage/galeri-image/'.$galeri->slug. '/' . $galeri->image) }}" alt="project-img" style="max-height:350px ; overflow:hidden;">
                                 <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                             </a>
                             <div class="project-item-info">

@@ -2,6 +2,7 @@
 @section('title')
 @lang('translation.Add_Kategori')
 @endsection
+
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -40,12 +41,16 @@
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug" readonly>
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Galeri Title : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="title_galeri" value="{{ old('title_galeri') }}" id="example-text-input" placeholder="Galeri Title">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Category : </label>
                         <div class="col-md-10">
                             <select name="kategori_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
@@ -54,17 +59,24 @@
                                 @endforeach
                             </select>
                         </div>
-                        <br><br>
-                        <label for="image" class="form-label">Image</label>
-                        <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
-                        <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                        <div id="fileSizeError" class="text-danger"></div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="image" class="col-md-2 col-form-label">Image</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
+                            <small class="text-muted">Ukuran file maksimal: 2MB</small>
+                            <div id="fileSizeError" class="text-danger"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Keterangan : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="keterangan" value="{{ old('keterangan') }}" id="example-text-input" placeholder="Keterangan">
                         </div>
                     </div>
+
                     <div class="pull-right">
                         <a class="btn btn-primary" href="{{ route('foto.list') }}"> Back</a>
                         <button type="submit" class="btn btn-primary">Submit</button>

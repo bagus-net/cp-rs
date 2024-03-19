@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-lg-7">
         <div class="card bg-info border-info text-white-50">
             <div class="card-body">
@@ -88,7 +88,7 @@
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div><!-- end col-md-4 -->
-</div>
+</div> --}}
 <!-- end row -->
 
 </div>

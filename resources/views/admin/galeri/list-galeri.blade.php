@@ -47,7 +47,7 @@
                                 @foreach ($res_galeri as $item)
                                 <tr>
                                     <td>{{ $loop->index + 1}}</td>
-                                    <td><img src="{{ asset('storage/galeri-image/'.$item->slug. '/' .$item->image) }}" alt="" width="200"></td>
+                                    <td><img src="{{ asset('storage/galeri-image/'.$item->slug.'/'.$item->image) }}" alt="" width="100" height="100" style="object-fit: cover;"></td>
                                     <td>{{ $item->title_galeri}}</td>
                                     <td>{{ $item->kategori}}</td>
                                     <td>{{ $item->created_at}}</td>

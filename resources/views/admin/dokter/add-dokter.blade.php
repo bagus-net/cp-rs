@@ -2,6 +2,7 @@
 @section('title')
 @lang('translation.Add_Kategori')
 @endsection
+
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -17,7 +18,6 @@
         </div>
     </div>
 </div>
-
 
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -41,18 +41,26 @@
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Nama Dokter : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" id="example-text-input" placeholder="Nama Dokter">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" class="form-select">
-                            <option value="Laki-Laki" @if (old('jenis_kelamin')=='Laki-Laki' ) selected="selected" @endif>Laki-Laki</option>
-                            <option value="Perempuan" @if (old('jenis_kelamin')=='Perempuan' ) selected="selected" @endif>Perempuan</option>
-                        </select>
-                        <br><br>
+                        <div class="col-md-10">
+                            <select name="jenis_kelamin" class="form-select">
+                                <option value="Laki-Laki" @if (old('jenis_kelamin')=='Laki-Laki' ) selected="selected" @endif>Laki-Laki</option>
+                                <option value="Perempuan" @if (old('jenis_kelamin')=='Perempuan' ) selected="selected" @endif>Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-md-10">
                             <div class="input-group" id="datepicker1">
@@ -60,22 +68,30 @@
                                 <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                             </div>
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">No Handphone : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="no_hp" value="{{ old('no_hp') }}" id="example-text-input" placeholder="No Handphone">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Email : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="email" value="{{ old('email') }}" id="example-text-input" placeholder="Email">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Alamat Domisili : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="alamat_domisili" value="{{ old('alamat_domisili') }}" id="example-text-input" placeholder="Alamat Domisili">
                         </div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Poliklinik : </label>
                         <div class="col-md-10">
                             <select name="poliklinik_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
@@ -84,17 +100,24 @@
                                 @endforeach
                             </select>
                         </div>
-                        <br><br>
-                        <label for="image" class="form-label">Image</label>
-                        <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
-                        <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                        <div id="fileSizeError" class="text-danger"></div>
-                        <br><br>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="image" class="form-label col-md-2">Image</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
+                            <small class="text-muted">Ukuran file maksimal: 2MB</small>
+                            <div id="fileSizeError" class="text-danger"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="riwayat" value="{{ old('riwayat') }}" id="example-text-input" placeholder="Riwayat Dokter">
                         </div>
                     </div>
+
                     <div class="pull-right">
                         <a class="btn btn-primary" href="{{ route('dokter.list') }}"> Back</a>
                         <button type="submit" class="btn btn-primary">Submit</button>

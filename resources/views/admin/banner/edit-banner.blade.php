@@ -1,7 +1,8 @@
 @extends('admin.layouts.master')
 @section('title')
-@lang('translation.Datatables')
+@lang('translation.Edit_Banner')
 @endsection
+
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
@@ -16,7 +17,6 @@
     </div>
 </div>
 
-
 @if (count($errors) > 0)
 <div class="alert alert-danger">
     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -27,6 +27,7 @@
     </ul>
 </div>
 @endif
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -34,24 +35,27 @@
                 <form action="{{ route('banner.update',$data->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     @csrf
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Banner Title : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Banner Title:</label>
                         <div class="col-md-10">
                             <input type="text" name="banner_title" value="{{ $data->banner_title }}" class="form-control" placeholder="Banner Title">
                         </div>
-                        <br><br>
-                        <label for="image" class="form-label">Banner Image</label>
-                        <br>
-                        @if($data->image)
-                        <img src="{{asset('storage/banner-image/' . $data->image)}}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
-                        @endif
-                        <br>
-                        <input class="form-control" type="file" name="image" id="image" onchange="validateFileSize(this)">
-                        <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                        <div id="fileSizeError" class="text-danger"></div>
                     </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('banner.list') }}"> Back</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3 row">
+                        <label for="image" class="col-md-2 col-form-label">Banner Image:</label>
+                        <div class="col-md-10">
+                            @if($data->image)
+                            <img src="{{asset('storage/banner-image/' . $data->image)}}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
+                            @endif
+                            <input class="form-control" type="file" name="image" id="image" onchange="validateFileSize(this)">
+                            <small class="text-muted">Maximum file size: 2MB</small>
+                            <div id="fileSizeError" class="text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-12 text-end">
+                            <a class="btn btn-primary me-2" href="{{ route('banner.list') }}">Back</a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#konfirmasiModal">Update Banner</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -63,20 +67,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Apakah anda ingin memproses data ini?
+                Are you sure you want to proceed with this data?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" class="btn btn-success" id="confirmSubmit">Iya</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" id="confirmSubmit">Yes</button>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
 @section('script')
 <script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
@@ -88,7 +93,7 @@
         const fileSize = input.files[0].size;
 
         if (fileSize > maxSize) {
-            document.getElementById('fileSizeError').innerHTML = 'Ukuran file melebihi batas (2MB). Pilih file lain.';
+            document.getElementById('fileSizeError').innerHTML = 'File size exceeds the limit (2MB). Please choose another file.';
             input.value = ''; // Reset input file
         } else {
             document.getElementById('fileSizeError').innerHTML = '';

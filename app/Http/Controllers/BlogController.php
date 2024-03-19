@@ -79,36 +79,42 @@ class BlogController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
+            // Hapus 'required' dari aturan validasi gambar
             'image' => 'image|file|max:5120',
             'body' => 'required',
         ];
-
+    
         if ($request->slug != $blog->slug) {
             $rules['slug'] = 'required|unique:blogs';
         }
-
+    
         $request->validate($rules);
-
+    
+        // Variabel $imageName untuk menampung nama file gambar
+        $imageName = $blog->image; // Gunakan nama gambar yang sudah ada sebagai default
+    
         if ($request->file('image')) {
-            if ($request->oldImage) {
+            // Jika ada file gambar yang diunggah, proses untuk menyimpannya
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/blog-image'), $imageName);
+    
+            // Hapus gambar lama jika ada
+            if ($blog->image) {
                 File::delete(public_path('/images/blog-image/' . $blog->image));
             }
-            $rules['image'] =
-                $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/blog-image'), $imageName);
         }
-
-        Blog::where('id', $blog->id)
-            ->update([
-                'title' => $request->title,
-                'slug' => $request->slug,
-                'category_id' => $request->category_id,
-                'body' => $request->body,
-                'user_id' => auth()->user()->id,
-                'excerpt' => Str::limit(Strip_tags($request->body), 200),
-                'image' => $imageName,
-            ]);
-
+    
+        // Lakukan pembaruan data blog
+        $blog->update([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'category_id' => $request->category_id,
+            'body' => $request->body,
+            'user_id' => auth()->user()->id,
+            'excerpt' => Str::limit(strip_tags($request->body), 200),
+            'image' => $imageName,
+        ]);
+    
         return redirect('/blog')->with('pesan', 'Post berhasil di Update');
     }
 

@@ -2,6 +2,7 @@
 @section('title')
 @lang('translation.Add_Kategori')
 @endsection
+
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -36,39 +37,52 @@
                 <form action="{{ route('blog.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     {{ csrf_field() }}
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Slug:</label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug" readonly>
                         </div>
-                        <br><br>
-                        <label for="example-text-input" class="col-md-2 col-form-label">Blog Title : </label>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Blog Title:</label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="title" value="{{ old('title') }}" id="example-text-input" placeholder="Blog Title">
                         </div>
-                        <br><br>
-                        <label for="example-text-input" class="col-md-2 col-form-label">Category : </label>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Category:</label>
                         <div class="col-md-10">
                             <select name="category_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
+                                <option value="">Pilih kategori blog</option>
                                 @foreach ($res_kategori_post as $item)
+                                
                                 <option value="{{$item->id}}">{{$item->kategori}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <br><br>
-                        <label for="image" class="form-label">Image</label>
-                        <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
-                        <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                        <div id="fileSizeError" class="text-danger"></div>
-                        <br><br>
-                        <label for="example-text-input" class="col-md-2 col-form-label">Konten : </label>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="image" class="col-md-2 col-form-label">Image:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Konten">
+                            <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
+                            <small class="text-muted">Maximum file size: 2MB</small>
+                            <div id="fileSizeError" class="text-danger"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Content">
                             <trix-editor input="body"></trix-editor>
                         </div>
                     </div>
+
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('blog.list') }}"> Back</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-primary me-2" href="{{ route('blog.list') }}">Back</a>
+                        <button type="submit" class="btn btn-primary">Add Blog</button>
                     </div>
                 </form>
             </div>
@@ -80,20 +94,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Apakah anda ingin memproses data ini?
+                Are you sure you want to proceed with this data?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" class="btn btn-success" id="confirmSubmit">Iya</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" id="confirmSubmit">Yes</button>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
 @section('script')
 <script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
@@ -107,28 +122,11 @@
         const fileSize = input.files[0].size;
 
         if (fileSize > maxSize) {
-            document.getElementById('fileSizeError').innerHTML = 'Ukuran file melebihi batas (2MB). Pilih file lain.';
+            document.getElementById('fileSizeError').innerHTML = 'File size exceeds the limit (2MB). Please choose another file.';
             input.value = ''; // Reset input file
         } else {
             document.getElementById('fileSizeError').innerHTML = '';
         }
     }
-
-    // $(document).ready(function() {
-    //     let isConfirmed = false;
-
-    //     $("#myForm").on("submit", function(e) {
-    //         if (!isConfirmed) {
-    //             e.preventDefault();
-    //             $("#konfirmasiModal").modal('show');
-    //         }
-    //     });
-
-    //     $("#confirmSubmit").on("click", function() {
-    //         isConfirmed = true;
-    //         $("#myForm").submit();
-    //         $("#konfirmasiModal").modal('hide');
-    //     });
-    // });
 </script>
 @endsection

@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Blog</h2>
+            <h2>Edit Fasilitas Layanan</h2>
         </div>
     </div>
 </div>
@@ -30,58 +30,64 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('blog.update',$find->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('fasilitas_layanan.update',$data->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     @csrf
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Slug:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="slug" value="{{ $find->slug }}" id="example-text-input" placeholder="Slug" readonly>
+                            <input class="form-control" type="text" name="slug" value="{{ $data->slug }}" id="example-text-input" placeholder="Slug" readonly>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Title : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Fasilitas:</label>
                         <div class="col-md-10">
-                            <input type="text" name="title" value="{{ $find->title }}" class="form-control" placeholder="Title">
+                            <input class="form-control" type="text" name="nama_fasilitas" value="{{ $data->nama_fasilitas }}" id="example-text-input" placeholder="Nama Fasilitas">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Category : </label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Category:</label>
                         <div class="col-md-10">
-                            <select name="category_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                @foreach ($res_kategori_post as $item)
-                                @if ($find->category_id == $item->id)
-                                <option value="{{$item->id}}" selected>{{$item->kategori}}</option>
+                            <select name="kategori" class="form-select">
+                                @if(old('kategori', $data->kategori) == 'Fasilitas Layanan Kesehatan')
+                                <option value="Fasilitas Layanan Kesehatan" selected>Fasilitas Layanan Kesehatan</option>
+                                <option value="Fasilitas Penunjang Medis">Fasilitas Penunjang Medis</option>
+                                <option value="Fasilitas Layanan Unggulan">Fasilitas Layanan Unggulan</option>
+
+                                @elseif(old('kategori', $data->kategori) == 'Fasilitas Penunjang Medis')
+                                <option value="Fasilitas Penunjang Medis" selected>Fasilitas Penunjang Medis</option>
+                                <option value="Fasilitas Layanan Kesehatan">Fasilitas Layanan Kesehatan</option>
+                                <option value="Fasilitas Layanan Unggulan">Fasilitas Layanan Unggulan</option>
+
                                 @else
-                                <option value="{{$item->id}}">{{$item->kategori}}</option>
+                                <option value="Fasilitas Layanan Unggulan" selected>Fasilitas Layanan Unggulan</option>
+                                <option value="Fasilitas Penunjang Medis">Fasilitas Penunjang Medis</option>
+                                <option value="Fasilitas Layanan Kesehatan">Fasilitas Layanan Kesehatan</option>
                                 @endif
-                                @endforeach
                             </select>
                         </div>
-                        <br><br>
+                    </div>
 
-                        <label for="image" class="form-label col-md-2">Image</label>
+                    <div class="mb-3 row">
+                        <label for="image" class="col-md-2 col-form-label">Image:</label>
                         <div class="col-md-10">
-                            @if($find->image)
-                            <img src="{{ asset('storage/blog-image/' . $find->slug . '/' . $find->image) }}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
+                            @if($data->image)
+                            <img src="{{ asset('storage/fasilitas_layanan-image/' . $data->slug . '/' . $data->image) }}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
                             @endif
                             <input class="form-control" type="file" name="image" id="image" onchange="validateFileSize(this)">
                             <small class="text-muted">Ukuran file maksimal: 2MB</small>
                             <div id="fileSizeError" class="text-danger"></div>
                         </div>
+                    </div>
 
-                        <br><br>
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
-                            <div class="col-md-10">
-                                <!-- <input class="form-control" type="text" name="body" value="{{ $find->body }}" id="example-text-input" placeholder="Content"> -->
-                                <input id="body" type="hidden" name="body" value="{{ $find->body }}">
-                                <div id="classic-editor" input="body"></div>
-                            </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Keterangan:</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="ket" value="{{ old('ket') }}" id="example-text-input" placeholder="Content">
                         </div>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('blog.list') }}"> Back</a>
-                        <button type="submit" class="btn btn-primary">Update Blog</button>
+                        <a class="btn btn-primary" href="{{ route('fasilitas_layanan.list') }}"> Back</a>
+                        <button type="submit" class="btn btn-primary">Update Fasilitas Layanan</button>
                     </div>
                 </form>
             </div>
@@ -112,18 +118,6 @@
 <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
-
-<!-- form editor -->
-<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#classic-editor'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

@@ -133,7 +133,7 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
             'title' => 'required',
             'category_id' => 'required',
             'body' => 'required'

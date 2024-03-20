@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Blog</h2>
+            <h2>Create Fasilitas Poli</h2>
         </div>
     </div>
 </div>

@@ -52,8 +52,13 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Jenis Kelamin</label>
                         <div class="col-md-10">
                             <select name="jenis_kelamin" class="form-select">
-                                <option value="Laki-Laki" @if ($find->jenis_kelamin == 'Laki-Laki' ) selected="selected" @endif>Laki-Laki</option>
-                                <option value="Perempuan" @if ($find->jenis_kelamin == 'Perempuan' ) selected="selected" @endif>Perempuan</option>
+                                @if(old('jenis_kelamin', $find->jenis_kelamin) == 'Laki-Laki')
+                                <option value="Laki-Laki" selected>Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+
+                                @else
+                                <option value="Perempuan" selected>Perempuan</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
                             </select>
                         </div>
                     </div>
@@ -62,8 +67,7 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir : </label>
                         <div class="col-md-10">
                             <div class="input-group" id="datepicker1">
-                                <input type="text" class="form-control" placeholder="dd M, yyyy" data-date-format="yyyy-mm-dd" data-date-container='#datepicker1' data-provide="datepicker" value="{{ $find->tanggal_lahir }}" name="tanggal_lahir">
-                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                <input class="form-control" type="date" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" id="example-text-input" placeholder="">
                             </div>
                         </div>
                     </div>

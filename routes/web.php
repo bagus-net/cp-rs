@@ -18,9 +18,9 @@ use App\Http\Controllers\BlogGuestController;
 use App\Http\Controllers\jadwalDokterController;
 use App\Http\Controllers\LayananImageController;
 use App\Http\Controllers\LayananDetailController;
-use App\Http\Controllers\FasilitasLayananController;
+// use App\Http\Controllers\FasilitasLayananController;
 use App\Http\Controllers\LayananUnggulanController;
-use App\Http\Controllers\LayananPoliklinikController;
+// use App\Http\Controllers\LayananPoliklinikController;
 use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\KategoriGaleriController;
 use App\Http\Controllers\YtLinkController;
@@ -34,6 +34,8 @@ use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\DokterController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\GaleriCategoryController;
+use App\Http\Controllers\Admin\LayananPoliklinikController;
+use App\Http\Controllers\Admin\FasilitasLayananController;
 
 //Login Minible
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -94,6 +96,23 @@ Route::get('dokter/edit/{id}', [DokterController::class, 'edit'])->name('dokter.
 Route::post('dokter/update/{id}', [DokterController::class, 'update'])->name('dokter.update');
 Route::get('dokter/delete/{id}', [DokterController::class, 'destroy'])->name('dokter.destroy');
 
+//Page Fasilitas Layanan
+Route::get('fasilitas_layanan', [FasilitasLayananController::class, 'index'])->name('fasilitas_layanan.list');
+Route::get('fasilitas_layanan/show/{id}', [FasilitasLayananController::class, 'show'])->name('fasilitas_layanan.show');
+Route::get('fasilitas_layanan/add', [FasilitasLayananController::class, 'create'])->name('fasilitas_layanan.create');
+Route::post('fasilitas_layanan/store', [FasilitasLayananController::class, 'store'])->name('fasilitas_layanan.add');
+Route::get('fasilitas_layanan/edit/{id}', [FasilitasLayananController::class, 'edit'])->name('fasilitas_layanan.edit');
+Route::post('fasilitas_layanan/update/{id}', [FasilitasLayananController::class, 'update'])->name('fasilitas_layanan.update');
+Route::get('fasilitas_layanan/delete/{id}', [FasilitasLayananController::class, 'destroy'])->name('fasilitas_layanan.destroy');
+
+//Page Layanan Poliklinik
+Route::get('layanan_poli', [LayananPoliklinikController::class, 'index'])->name('layanan_poli.list');
+Route::get('layanan_poli/show/{id}', [LayananPoliklinikController::class, 'show'])->name('layanan_poli.show');
+Route::get('layanan_poli/add', [LayananPoliklinikController::class, 'create'])->name('layanan_poli.create');
+Route::post('layanan_poli/store', [LayananPoliklinikController::class, 'store'])->name('layanan_poli.add');
+Route::get('layanan_poli/edit/{id}', [LayananPoliklinikController::class, 'edit'])->name('layanan_poli.edit');
+Route::post('layanan_poli/update/{id}', [LayananPoliklinikController::class, 'update'])->name('layanan_poli.update');
+Route::get('layanan_poli/delete/{id}', [LayananPoliklinikController::class, 'destroy'])->name('layanan_poli.destroy');
 
 //------------------------------------------------------------------------------------------------------//
 
@@ -160,7 +179,7 @@ Route::resource('/dashboard/user', User_Controller::class)->middleware('auth');
 // Route::resource('/dashboard/banner', BannerController::class)->middleware('auth');
 
 // Dokter
-Route::resource('/dashboard/dokter', DokterController::class)->middleware('auth');
+// Route::resource('/dashboard/dokter', DokterController::class)->middleware('auth');
 
 // jadwal dokter
 Route::get('/dashboard/dokter-jadwal/{dokter}', [jadwalDokterController::class, 'index'])->middleware('auth');
@@ -174,10 +193,10 @@ Route::get('/dashboard/lamaran/{lowongan}', [LamaranController::class, 'index'])
 Route::resource('/dashboard/lamaran', LamaranController::class)->middleware('auth');
 
 // layanan-poliklinik
-Route::resource('/dashboard/layanan-poliklinik', LayananPoliklinikController::class)->middleware('auth');
+// Route::resource('/dashboard/layanan-poliklinik', LayananPoliklinikController::class)->middleware('auth');
 
 // fasilitas layanan
-Route::resource('/dashboard/fasilitas-layanan', FasilitasLayananController::class)->middleware('auth');
+// Route::resource('/dashboard/fasilitas-layanan', FasilitasLayananController::class)->middleware('auth');
 
 // layanan Unggulan
 Route::resource('/dashboard/layanan-unggulan', layananUnggulanController::class)->middleware('auth');

@@ -55,6 +55,16 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-blogger-alt"></i>
+                        <span>@lang('Layanan')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href={{ route('fasilitas_layanan.list') }}>@lang('Fasilitas Layanan')</a></li>
+                        <li><a href={{ route('layanan_poli.list') }}>@lang('Layanan Poliklinik')</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-user-circle"></i>
                         <span>@lang('Users Management')</span>
                     </a>

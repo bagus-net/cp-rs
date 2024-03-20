@@ -57,25 +57,24 @@
                                 @endforeach
                             </select>
                         </div>
-                        <br><br>
-
+                        <br><br>   
+                       
                         <label for="image" class="form-label col-md-2">Image</label>
-                        <div class="col-md-10">
-                            @if($find->image)
-                            <img src="{{ asset('storage/blog-image/' . $find->slug . '/' . $find->image) }}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
-                            @endif
-                            <input class="form-control" type="file" name="image" id="image" onchange="validateFileSize(this)">
-                            <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                            <div id="fileSizeError" class="text-danger"></div>
-                        </div>
+<div class="col-md-10">
+    @if($find->image)
+    <img src="{{ asset('storage/blog-image/' . $find->slug . '/' . $find->image) }}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
+    @endif
+    <input class="form-control" type="file" name="image" id="image" onchange="validateFileSize(this)">
+    <small class="text-muted">Ukuran file maksimal: 2MB</small>
+    <div id="fileSizeError" class="text-danger"></div>
+</div>
 
                         <br><br>
                         <div class="mb-3 row">
                             <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
                             <div class="col-md-10">
-                                <!-- <input class="form-control" type="text" name="body" value="{{ $find->body }}" id="example-text-input" placeholder="Content"> -->
-                                <input id="body" type="hidden" name="body" value="{{ $find->body }}">
-                                <div id="classic-editor" input="body"></div>
+                                <input class="form-control" type="text" name="body" value="{{ $find->body }}" id="example-text-input" placeholder="Content">
+                                <trix-editor input="body"></trix-editor>
                             </div>
                         </div>
                     </div>
@@ -112,18 +111,6 @@
 <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
-
-<!-- form editor -->
-<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#classic-editor'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

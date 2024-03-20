@@ -39,7 +39,7 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug">
+                            <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug" readonly>
                         </div>
                     </div>
 
@@ -64,8 +64,7 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-md-10">
                             <div class="input-group" id="datepicker1">
-                                <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd" data-date-container='#datepicker1' data-provide="datepicker" name="tanggal_lahir">
-                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                <input class="form-control" type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" id="example-date-input" placeholder="" required>
                             </div>
                         </div>
                     </div>

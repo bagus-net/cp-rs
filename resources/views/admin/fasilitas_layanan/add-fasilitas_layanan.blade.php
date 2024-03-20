@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Blog</h2>
+            <h2>Create Fasilitas Layanan</h2>
         </div>
     </div>
 </div>
@@ -34,7 +34,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('blog.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('fasilitas_layanan.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     {{ csrf_field() }}
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Slug:</label>
@@ -44,21 +44,19 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Blog Title:</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Fasilitas:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="title" value="{{ old('title') }}" id="example-text-input" placeholder="Blog Title">
+                            <input class="form-control" type="text" name="nama_fasilitas" value="{{ old('nama_fasilitas') }}" id="example-text-input" placeholder="Nama Fasilitas">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Category:</label>
                         <div class="col-md-10">
-                            <select name="category_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                <option value="">Pilih kategori blog</option>
-                                @foreach ($res_kategori_post as $item)
-
-                                <option value="{{$item->id}}">{{$item->kategori}}</option>
-                                @endforeach
+                            <select name="kategori" class="form-select">
+                                <option value="Fasilitas Layanan Kesehatan" @if (old('kategori')=='Fasilitas Layanan Kesehatan' ) selected="selected" @endif>Fasilitas Layanan Kesehatan</option>
+                                <option value="Fasilitas Penunjang Medis" @if (old('kategori')=='Fasilitas Penunjang Medis' ) selected="selected" @endif>Fasilitas Penunjang Medis</option>
+                                <option value="Fasilitas Layanan Unggulan" @if (old('kategori')=='Fasilitas Layanan Unggulan' ) selected="selected" @endif>Fasilitas Layanan Unggulan</option>
                             </select>
                         </div>
                     </div>
@@ -73,17 +71,15 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Keterangan:</label>
                         <div class="col-md-10">
-                            <!-- <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Content"> -->
-                            <input id="body" type="hidden" name="body" value="{{old('body')}}">
-                            <div id="classic-editor" input="body"></div>
+                            <input class="form-control" type="text" name="ket" value="{{ old('ket') }}" id="example-text-input" placeholder="Content">
                         </div>
                     </div>
 
                     <div class="pull-right">
-                        <a class="btn btn-primary me-2" href="{{ route('blog.list') }}">Back</a>
-                        <button type="submit" class="btn btn-primary">Add Blog</button>
+                        <a class="btn btn-primary me-2" href="{{ route('fasilitas_layanan.list') }}">Back</a>
+                        <button type="submit" class="btn btn-primary">Add Fasilitas Layanan</button>
                     </div>
                 </form>
             </div>
@@ -117,18 +113,6 @@
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/datepicker/datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-
-<!-- form editor -->
-<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#classic-editor'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

@@ -141,16 +141,16 @@ class DokterController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
-            'slug' => 'required',
-            'nama' => 'required',
-            'poliklinik_id' => 'required',
-            'jenis_kelamin' => 'required',
-            'tanggal_lahir' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required',
-            'alamat_domisili' => 'required',
-            'riwayat' => 'required',
+            'image' => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
+            'slug' => 'nullable',
+            'nama' => 'nullable',
+            'poliklinik_id' => 'nullable',
+            'jenis_kelamin' => 'nullable',
+            'tanggal_lahir' => 'nullable',
+            'no_hp' => 'nullable',
+            'email' => 'nullable',
+            'alamat_domisili' => 'nullable',
+            'riwayat' => 'nullable',
         ]);
         $input = $request->id;
         $data = Dokter::find($input);

@@ -57,8 +57,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        <br><br>
+                    </div>
 
+                    <div class="mb-3 row">
                         <label for="image" class="form-label col-md-2">Image</label>
                         <div class="col-md-10">
                             @if($find->image)
@@ -68,15 +69,13 @@
                             <small class="text-muted">Ukuran file maksimal: 2MB</small>
                             <div id="fileSizeError" class="text-danger"></div>
                         </div>
+                    </div>
 
-                        <br><br>
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
-                            <div class="col-md-10">
-                                <!-- <input class="form-control" type="text" name="body" value="{{ $find->body }}" id="example-text-input" placeholder="Content"> -->
-                                <input id="body" type="hidden" name="body" value="{{ $find->body }}">
-                                <div id="classic-editor" input="body"></div>
-                            </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
+                        <div class="col-md-10">
+                            <!-- <input class="form-control" type="text" name="body" value="{{ $find->body }}" id="example-text-input" placeholder="Content"> -->
+                            <textarea id="body" class="form-control" name="body" rows="10">{!! $find->body !!}</textarea>
                         </div>
                     </div>
                     <div class="pull-right">
@@ -119,7 +118,7 @@
 <script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
 <script>
     ClassicEditor
-        .create(document.querySelector('#classic-editor'))
+        .create(document.querySelector('#body'))
         .catch(error => {
             console.error(error);
         });
@@ -133,7 +132,8 @@
             document.getElementById('fileSizeError').innerHTML = 'Ukuran file melebihi batas (2MB). Pilih file lain.';
             input.value = ''; // Reset input file
         } else {
-            document.getElementById('fileSizeError').innerHTML = '';
+            document.getElementById('fileSizeError').innerHTML
+            = '';
         }
     }
 

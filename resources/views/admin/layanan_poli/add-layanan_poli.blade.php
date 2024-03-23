@@ -51,7 +51,7 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Keterangan:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="ket" value="{{ old('ket') }}" id="example-text-input" placeholder="Keterangan">
+                            <textarea class="form-control" name="ket" id="keterangan" placeholder="Keterangan">{{ old('ket') }}</textarea>
                         </div>
                     </div>
                     <div class="pull-right">
@@ -101,6 +101,11 @@
         .catch(error => {
             console.error(error);
         });
+</script>
+<script>
+    tinymce.init({
+        selector: '#keterangan'
+    });
 </script>
 <script>
     function validateFileSize(input) {

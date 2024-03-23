@@ -7,6 +7,9 @@
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ URL::asset('minible/assets/libs/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
+
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @endsection
 
 @section('content')
@@ -73,7 +76,7 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Keterangan:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="ket" value="{{ old('ket') }}" id="example-text-input" placeholder="Content">
+                            <textarea class="form-control" name="ket" id="editor">{{ old('ket') }}</textarea>
                         </div>
                     </div>
 
@@ -113,6 +116,15 @@
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/datepicker/datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

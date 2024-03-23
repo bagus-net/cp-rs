@@ -5,13 +5,36 @@
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<style>
+    .banner-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .banner-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .data-container {
+        margin-top: 20px;
+    }
+
+    .data-container .row {
+        margin-bottom: 10px;
+    }
+
+    .data-container label {
+        font-weight: bold;
+    }
+</style>
 @endsection
 
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Show Banner</h2>
+            <h2>Show Dokter</h2>
         </div>
     </div>
 </div>
@@ -27,107 +50,61 @@
 </div>
 @endif
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <form>
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="slug" value="{{ $find->slug }}" id="example-text-input" placeholder="Slug">
-                        </div>
-                    </div>
+<div class="banner-container">
+    @if($find->image)
+    <img src="{{asset('storage/dokter-image/' . $find->slug . '/' . $find->image)}}" alt="Banner Image" width="500" height="500">
+    @endif
+</div>
 
-                    <!-- Place image on the right -->
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Banner Image : </label>
-                        <div class="col-md-4">
-                            @if($find->image)
-                            <img src="{{asset('storage/dokter-image/' . $find->slug . '/' . $find->image)}}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
-                            @endif
-                            <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
-                            <small class="text-muted">Ukuran file maksimal: 2MB</small>
-                            <div id="fileSizeError" class="text-danger"></div>
-                        </div>
-                    </div>
+<div class="data-container">
+    <div class="row">
+        <label class="col-md-2">Slug :</label>
+        <div class="col-md-4">{{ $find->slug }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Dokter : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="nama" value="{{ $find->nama }}" id="example-text-input" placeholder="Nama Dokter">
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Nama Dokter :</label>
+        <div class="col-md-4">{{ $find->nama }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Jenis Kelamin</label>
-                        <div class="col-md-4">
-                            <select name="jenis_kelamin" class="form-select">
-                                <option value="Laki-Laki" @if (old('jenis_kelamin')=='Laki-Laki' ) selected="selected" @endif>Laki-Laki</option>
-                                <option value="Perempuan" @if (old('jenis_kelamin')=='Perempuan' ) selected="selected" @endif>Perempuan</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Jenis Kelamin :</label>
+        <div class="col-md-4">{{ $find->jenis_kelamin }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir : </label>
-                        <div class="col-md-4">
-                            <div class="input-group" id="datepicker1">
-                                <input type="text" class="form-control" placeholder="dd M, yyyy" data-date-format="yyyy-mm-dd" data-date-container='#datepicker1' data-provide="datepicker" value="{{ $find->tanggal_lahir }}" name="tanggal_lahir">
-                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                            </div>
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Tanggal Lahir :</label>
+        <div class="col-md-4">{{ $find->tanggal_lahir }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">No Handphone : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="no_hp" value="{{ $find->no_hp }}" id="example-text-input" placeholder="No Handphone">
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">No Handphone :</label>
+        <div class="col-md-4">{{ $find->no_hp }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Email : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="email" value="{{ $find->email }}" id="example-text-input" placeholder="Email">
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Email :</label>
+        <div class="col-md-4">{{ $find->email }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Alamat Domisili : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="alamat_domisili" value="{{ $find->alamat_domisili }}" id="example-text-input" placeholder="Alamat Domisili">
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Alamat Domisili :</label>
+        <div class="col-md-4">{{ $find->alamat_domisili }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Poliklinik : </label>
-                        <div class="col-md-4">
-                            <select name="poliklinik_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                @foreach ($res_layanan_polikliniks as $item)
-                                @if ($find->poliklinik_id == $item->id)
-                                <option value="{{$item->id}}" selected>{{$item->poliklinik}}</option>
-                                @else
-                                <option value="{{$item->id}}">{{$item->poliklinik}}</option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+    <div class="row">
+        <label class="col-md-2">Poliklinik :</label>
+        <div class="col-md-4">{{ $find->poliklinik_id }}</div>
+    </div>
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" name="riwayat" value="{{ $find->riwayat }}" id="example-text-input" placeholder="Riwayat Dokter">
-                        </div>
-                    </div>
-                </form>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('dokter.list') }}"> Back</a>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end col -->
+    <div class="row">
+        <label class="col-md-2">Riwayat Dokter :</label>
+        <div class="col-md-4">{{ $find->riwayat }}</div>
+    </div>
+</div>
+
+<div class="pull-right">
+    <a class="btn btn-primary" href="{{ route('dokter.list') }}"> Back</a>
 </div>
 
 @endsection

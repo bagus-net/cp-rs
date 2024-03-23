@@ -5,6 +5,9 @@
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+
 @endsection
 
 @section('content')
@@ -82,9 +85,10 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Keterangan:</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="ket" value="{{ old('ket') }}" id="example-text-input" placeholder="Content">
+                            <textarea class="form-control" name="ket" id="editor">{{ $data->ket }}</textarea>
                         </div>
                     </div>
+                    
                     <div class="pull-right">
                         <a class="btn btn-primary" href="{{ route('fasilitas_layanan.list') }}"> Back</a>
                         <button type="submit" class="btn btn-primary">Update Fasilitas Layanan</button>
@@ -147,5 +151,14 @@
             $("#konfirmasiModal").modal('hide');
         });
     });
+
+    
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+
 </script>
 @endsection

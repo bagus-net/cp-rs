@@ -1,8 +1,7 @@
 @extends('admin.layouts.master')
 @section('title')
-@lang('translation.Datatables')
+@lang('Datatables')
 @endsection
-
 @section('css')
 <!-- DataTables -->
 <link href="{{ URL::asset('minible/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
@@ -12,7 +11,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Dokter</h2>
+            <h2>Show Banner</h2>
         </div>
     </div>
 </div>
@@ -33,80 +32,18 @@
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('dokter.update',$find->id) }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Slug : </label>
-                        <div class="col-md-10">
+                        <div class="col-md-4">
                             <input class="form-control" type="text" name="slug" value="{{ $find->slug }}" id="example-text-input" placeholder="Slug">
                         </div>
                     </div>
 
+                    <!-- Place image on the right -->
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Dokter : </label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="nama" value="{{ $find->nama }}" id="example-text-input" placeholder="Nama Dokter">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Jenis Kelamin</label>
-                        <div class="col-md-10">
-                            <select name="jenis_kelamin" class="form-select">
-                                @if(old('jenis_kelamin', $find->jenis_kelamin) == 'Laki-Laki')
-                                <option value="Laki-Laki" selected>Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
-
-                                @else
-                                <option value="Perempuan" selected>Perempuan</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir : </label>
-                        <div class="col-md-10">
-                            <div class="input-group" id="datepicker1">
-                                <input class="form-control" type="date" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" id="example-text-input" placeholder="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">No Handphone : </label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="no_hp" value="{{ $find->no_hp }}" id="example-text-input" placeholder="No Handphone">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Email : </label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="email" value="{{ $find->email }}" id="example-text-input" placeholder="Email">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Alamat Domisili : </label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="alamat_domisili" value="{{ $find->alamat_domisili }}" id="example-text-input" placeholder="Alamat Domisili">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Poliklinik : </label>
-                        <div class="col-md-10">
-                            <select name="poliklinik_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                @foreach ($res_layanan_polikliniks as $item)
-                                <option value="{{$item->id}}" @if ($find->poliklinik_id == $item->id) selected @endif>{{$item->poliklinik}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="image" class="form-label col-md-2">Banner Image</label>
-                        <div class="col-md-10">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Banner Image : </label>
+                        <div class="col-md-4">
                             @if($find->image)
                             <img src="{{asset('storage/dokter-image/' . $find->slug . '/' . $find->image)}}" alt="Current Image" style="max-width:100px; margin-top: 10px;">
                             @endif
@@ -117,39 +54,84 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="riwayat" value="{{ $find->riwayat }}" id="example-text-input" placeholder="Riwayat Dokter">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Dokter : </label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="nama" value="{{ $find->nama }}" id="example-text-input" placeholder="Nama Dokter">
                         </div>
                     </div>
 
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('dokter.list') }}"> Back</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                        <div class="col-md-4">
+                            <select name="jenis_kelamin" class="form-select">
+                                <option value="Laki-Laki" @if (old('jenis_kelamin')=='Laki-Laki' ) selected="selected" @endif>Laki-Laki</option>
+                                <option value="Perempuan" @if (old('jenis_kelamin')=='Perempuan' ) selected="selected" @endif>Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tanggal Lahir : </label>
+                        <div class="col-md-4">
+                            <div class="input-group" id="datepicker1">
+                                <input type="text" class="form-control" placeholder="dd M, yyyy" data-date-format="yyyy-mm-dd" data-date-container='#datepicker1' data-provide="datepicker" value="{{ $find->tanggal_lahir }}" name="tanggal_lahir">
+                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">No Handphone : </label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="no_hp" value="{{ $find->no_hp }}" id="example-text-input" placeholder="No Handphone">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Email : </label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="email" value="{{ $find->email }}" id="example-text-input" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Alamat Domisili : </label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="alamat_domisili" value="{{ $find->alamat_domisili }}" id="example-text-input" placeholder="Alamat Domisili">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Poliklinik : </label>
+                        <div class="col-md-4">
+                            <select name="poliklinik_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
+                                @foreach ($res_layanan_polikliniks as $item)
+                                @if ($find->poliklinik_id == $item->id)
+                                <option value="{{$item->id}}" selected>{{$item->poliklinik}}</option>
+                                @else
+                                <option value="{{$item->id}}">{{$item->poliklinik}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="riwayat" value="{{ $find->riwayat }}" id="example-text-input" placeholder="Riwayat Dokter">
+                        </div>
                     </div>
                 </form>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="{{ route('dokter.list') }}"> Back</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </div>
         </div>
-    </div>
+    </div> <!-- end col -->
 </div>
 
-<div class="modal fade bs-example-modal-xl" id="konfirmasiModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            </div>
-            <div class="modal-body">
-                Apakah anda ingin memproses data ini?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" class="btn btn-success" id="confirmSubmit">Iya</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('script')
@@ -169,22 +151,5 @@
             document.getElementById('fileSizeError').innerHTML = '';
         }
     }
-
-    $(document).ready(function() {
-        let isConfirmed = false;
-
-        $("#myForm").on("submit", function(e) {
-            if (!isConfirmed) {
-                e.preventDefault();
-                $("#konfirmasiModal").modal('show');
-            }
-        });
-
-        $("#confirmSubmit").on("click", function() {
-            isConfirmed = true;
-            $("#myForm").submit();
-            $("#konfirmasiModal").modal('hide');
-        });
-    });
 </script>
 @endsection

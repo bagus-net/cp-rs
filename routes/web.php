@@ -189,7 +189,7 @@ Route::get('/galeri', [MainController::class, 'galeriIndex'])->middleware('guest
 // Route::post('/blogCategory', [BlogCategory::class, 'store']);
 
 // users
-Route::resource('/dashboard/user', User_Controller::class)->middleware('auth');
+// Route::resource('/dashboard/user', User_Controller::class)->middleware('auth');
 
 // banner
 // Route::resource('/dashboard/banner', BannerController::class)->middleware('auth');

@@ -119,7 +119,7 @@ $bg = asset('Template');
             </div><!-- Col end -->
 
             <div class="col-lg-4 text-center">
-                <img loading="lazy" class="img-fluid" src="template/images/services/dokter umum 2.png" alt="service-avater-image">
+                <img loading="lazy" class="img-fluid" src="{{asset('Template')}}/images/services/dokter umum 2.png" alt="service-avater-image">
             </div><!-- Col end -->
 
             <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
@@ -210,7 +210,7 @@ $bg = asset('Template');
             @foreach($partnership as $partner)
             <div class="col-sm-2 col-6">
                 <figure class="clients-logo">
-                    <a href="#"><img loading="lazy" class="img-fluid" src="{{asset('images/partner-image/'.$partner->image)}}" alt="clients-logo" title="{{$partner->nama_partner}}" /></a>
+                    <a href="#"><img loading="lazy" class="img-fluid" src="{{asset('storage/partnership-image/'.$partner->image)}}" alt="clients-logo" title="{{$partner->nama_partner}}" /></a>
                 </figure>
             </div>
             @endforeach

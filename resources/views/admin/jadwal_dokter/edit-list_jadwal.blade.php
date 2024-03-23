@@ -9,8 +9,7 @@
 
 @section('content')
 
-
-<h4 class="mb-0">List Layanan Poli</h4>
+<h4 class="mb-0">List Jadwal Dokter</h4>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -20,8 +19,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-success" href="{{ route('layanan_poli.create') }}">Create Layanan Poli</a>
-                    <a class="btn btn-success" href="{{ route('blogcategory.create') }}">Create Category Blog</a>
+                    <a class="btn btn-success" href="{{ route('dokter.list') }}">Back List Dokter</a>
                 </div>
             </div>
         </div>
@@ -36,19 +34,22 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Poliklinik</th>
-                                    <th>Action</th>
+                                    <!-- <th>Nama Dokter</th> -->
+                                    <th>Hari</th>
+                                    <th>Dari Jam</th>
+                                    <th>Sampai Jam</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($res_layanan_poli as $item)
+                                @foreach ($jadwals as $item)
                                 <tr>
                                     <td>{{ $loop->index + 1}}</td>
-                                    <td>{{ $item->poliklinik}}</td>
+                                    <!-- <td>{{ $item->nama_dokter}}</td> -->
+                                    <td>{{ $item->hari}}</td>
+                                    <td>{{ $item->dari}}</td>
+                                    <td>{{ $item->sampai}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('layanan_poli.show',$item->id) }}"><i class="uil uil-eye"></i></a>
-                                        <a href="{{ route('layanan_poli.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
-                                        <a href="{{ route('layanan_poli.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('jadwal_dokter.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
                                         </form>
                                     </td>
                                 </tr>

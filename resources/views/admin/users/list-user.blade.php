@@ -1,19 +1,22 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 @lang('translation.Datatables')
 @endsection
 @section('css')
 <!-- DataTables -->
-<link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('minible/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-@component('common-components.breadcrumb')
-@slot('pagetitle') Tables @endslot
-@slot('title') List User @endslot
-@endcomponent
 
-@if (Auth::user()->level == '1')
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>List User</h2>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="card">
@@ -24,7 +27,6 @@
         </div>
     </div>
 </div>
-@endif
 
 <div class="row">
     <div class="col-12">
@@ -36,7 +38,6 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama</th>
-                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,12 +46,9 @@
                             <tr>
                                 <td>{{ $loop->index + 1}}</td>
                                 <td>{{ $item->nama}}</td>
-                                <td>{{ $item->role}}</td>
                                 <td>
-                                    @if (Auth::user()->level == '1')
                                     <a class="btn btn-primary" href="{{ route('user.edit',$item->id) }}"><i class="uil uil-pen font-size-18"></i></a>
                                     <a class="btn btn-danger" href="{{ route('user.destroy',$item->id) }}"><i class="uil uil-trash-alt font-size-18"></i></a>
-                                    @endif
                                     @csrf
                                 </td>
                             </tr>
@@ -66,8 +64,8 @@
 
 @endsection
 @section('script')
-<script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 @endsection

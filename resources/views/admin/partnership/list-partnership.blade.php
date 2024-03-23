@@ -10,7 +10,7 @@
 @section('content')
 
 
-<h4 class="mb-0">List Layanan Poli</h4>
+<h4 class="mb-0">List Partnership</h4>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -20,8 +20,8 @@
         <div class="col-lg-12 margin-tb">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-success" href="{{ route('layanan_poli.create') }}">Create Layanan Poli</a>
-                    <a class="btn btn-success" href="{{ route('blogcategory.create') }}">Create Category Blog</a>
+                    <a class="btn btn-success" href="{{ route('partnership.create') }}">Create Partnership</a>
+
                 </div>
             </div>
         </div>
@@ -36,19 +36,19 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Poliklinik</th>
+                                    <th>Image</th>
+                                    <th>Nama Partnership</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($res_layanan_poli as $item)
+                                @foreach ($res_partnership as $item)
                                 <tr>
                                     <td>{{ $loop->index + 1}}</td>
-                                    <td>{{ $item->poliklinik}}</td>
+                                    <td><img src="{{ asset('storage/partnership-image/'.$item->slug. '/' .$item->image) }}" alt="" width="200"></td>
+                                    <td>{{ $item->nama_partner}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('layanan_poli.show',$item->id) }}"><i class="uil uil-eye"></i></a>
-                                        <a href="{{ route('layanan_poli.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
-                                        <a href="{{ route('layanan_poli.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('partnership.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                                         </form>
                                     </td>
                                 </tr>
@@ -59,13 +59,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- end col -->
-</div> <!-- end row -->
-@endsection
-@section('script')
-<script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
-@endsection
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+    @endsection
+    @section('script')
+    <script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
+    @endsection

@@ -1,17 +1,22 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
-@lang('translation.Datatables')
+@lang('translation.Add_Kategori')
 @endsection
 @section('css')
 <!-- DataTables -->
-<link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('minible/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('minible/assets/libs/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-@component('common-components.breadcrumb')
-@slot('pagetitle') Tables @endslot
-@slot('title') Edit User @endslot
-@endcomponent
+
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Edit User</h2>
+        </div>
+    </div>
+</div>
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -36,19 +41,6 @@
                             <input type="text" name="nama" value="{{ $find->nama }}" class="form-control" placeholder="Nama User">
                         </div>
                         <br><br>
-                        <label for="example-text-input" class="col-md-2 col-form-label">Role : </label>
-                        <div class="col-md-10">
-                            <select name="level" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                @foreach ($res_role as $item)
-                                @if ($find->id == $item->id)
-                                <option value="{{$item->id}}" selected>{{$item->role}}</option>
-                                @else
-                                <option value="{{$item->id}}">{{$item->role}}</option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <br><br>
                         <label for="example-text-input" class="col-md-2 col-form-label">Password : </label>
                         <div class="col-md-10">
                             <input type="password" name="password" class="form-control" value="" id="password" placeholder="Enter password" required>
@@ -57,6 +49,11 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Confirm Password : </label>
                         <div class="col-md-10">
                             <input type="password" name="confirm-password" class="form-control" value="" id="password" placeholder="Confirm Password" required>
+                        </div>
+                        <br><br>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Email : </label>
+                        <div class="col-md-10">
+                            <input type="text" name="email" value="{{ $find->email }}" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="pull-right">
@@ -89,10 +86,10 @@
 
 @endsection
 @section('script')
-<script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/datatables/datatables.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 
 <script>
     $(document).ready(function() {

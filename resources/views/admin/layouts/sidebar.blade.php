@@ -51,6 +51,7 @@
                         <li><a href={{ route('blog.list') }}>@lang('Blog')</a></li>
                         <li><a href={{ route('foto.list') }}>@lang('Galeri')</a></li>
                         <li><a href={{ route('dokter.list') }}>@lang('Dokter')</a></li>
+                        <li><a href={{ route('partnership.list') }}>@lang('Partnership')</a></li>
                     </ul>
                 </li>
                 <li>
@@ -69,6 +70,7 @@
                         <span>@lang('Users Management')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><a href={{ route('user.list') }}>@lang('Users')</a></li>
                     </ul>
                 </li>
             </ul>

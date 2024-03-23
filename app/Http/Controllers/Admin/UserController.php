@@ -17,12 +17,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $res_user = DB::table('users as u')
-            ->leftJoin('urole as r', 'u.level', '=', 'r.id')
-            ->select('u.id', 'u.nama', 'r.role')
-            ->get();
-        $title = 'Data User';
-        return view('users.list-user', compact('title', 'res_user'));
+        $res_user = User::all();
+        return view('admin.users.list-user', compact('res_user'));
     }
 
     /**
@@ -32,8 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $res_role = DB::select('select * from urole');
-        return view('users.add-user', compact('res_role'));
+        return view('admin.users.add-user', compact('res_role'));
     }
 
     /**
@@ -44,18 +39,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
+        $data = $request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
-            'level' => 'required',
+            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
-        $user = new User();
-        $user->nama = $request->nama;
-        $user->password = Hash::make($request->password);
-        $user->level = $request->level;
-        $user->save();
-        return redirect()->route('user.list')->with('success', 'Tambah Data Berhasil');
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time()  . '.' . $file->getClientOriginalExtension();
+            $folderPath = '/user-image/';
+            $file->storeAs($folderPath, $fileName);
+            $data['image'] = $fileName;
+        } else {
+            $data['image'] = " ";
+        }
+        $transaksi = User::create($data);
+        return redirect()
+            ->route('user.list')->with("success-add", "Data successfully added.");
+        return redirect()
+            ->route('user.list')->with("failed", "Data failed to added.");
     }
 
     /**
@@ -77,10 +84,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $res_find = DB::select('select * from users where id=' . $id);
-        $find = $res_find[0];
-        $res_role = DB::select('select * from urole');
-        return view('users.edit-user', compact('find', 'res_role'));
+        $find = User::find($id);
+        return view('admin.users.edit-user', compact('find'));
     }
 
     /**
@@ -94,13 +99,13 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'password' => 'same:confirm-password',
-            'level' => 'required'
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'same:confirm-password'
         ]);
 
         $user = User::find($id);
         $user->nama = $request->nama;
-        $user->level = $request->level;
+        $user->email = $request->email;
 
         // Perbarui password jika ada perubahan
         if ($request->password) {
@@ -121,21 +126,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $resdelete = DB::delete('DELETE FROM users WHERE id=' . $id . ';');
-
-        if ($resdelete) {
-            return redirect()
-                ->route('user.list')
-                ->with([
-                    'success' => 'New post has been created successfully'
-                ]);
-        } else {
-            return redirect()
-                ->back()
-                ->withInput()
-                ->with([
-                    'error' => 'Some problem occurred, please try again'
-                ]);
-        }
+        User::destroy($id);
+        return redirect()->back();
     }
 }

@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Fasilitas Poli</h2>
+            <h2>Create Jadwal Dokter</h2>
         </div>
     </div>
 </div>
@@ -34,56 +34,49 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('blog.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('jadwal_dokter.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     {{ csrf_field() }}
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Slug:</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nama Dokter : </label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="slug" value="{{ $slug }}" id="example-text-input" placeholder="Slug" readonly>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Blog Title:</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" name="title" value="{{ old('title') }}" id="example-text-input" placeholder="Blog Title">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Category:</label>
-                        <div class="col-md-10">
-                            <select name="category_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
-                                <option value="">Pilih kategori blog</option>
-                                @foreach ($res_kategori_post as $item)
-
-                                <option value="{{$item->id}}">{{$item->kategori}}</option>
+                            <select name="dokter_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
+                                @foreach ($res_dokters as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
-
                     <div class="mb-3 row">
-                        <label for="image" class="col-md-2 col-form-label">Image:</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Poliklinik : </label>
                         <div class="col-md-10">
-                            <input class="form-control" type="file" name="image" id="image" accept="image/*" onchange="validateFileSize(this)">
-                            <small class="text-muted">Maximum file size: 2MB</small>
-                            <div id="fileSizeError" class="text-danger"></div>
+                            <select name="poliklinik_id" id="userSelectCategory" class="form-select" aria-label="Floating label select">
+                                @foreach ($res_layanan_polikliniks as $item)
+                                <option value="{{$item->id}}">{{$item->poliklinik}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-
                     <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Content:</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Hari:</label>
                         <div class="col-md-10">
-                            <!-- <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Content"> -->
-                            <input id="body" type="hidden" name="body" value="{{old('body')}}">
-                            <div id="classic-editor" input="body"></div>
+                            <input class="form-control" type="text" name="hari" value="{{ old('hari') }}" id="example-text-input" placeholder="Hari">
                         </div>
                     </div>
-
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Dari Jam:</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="time" name="dari" value="{{ old('dari') }}" id="example-text-input" placeholder="Dari Jam">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Sampai Jam:</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="time" name="sampai" value="{{ old('sampai') }}" id="example-text-input" placeholder="Sampai Jam">
+                        </div>
+                    </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary me-2" href="{{ route('blog.list') }}">Back</a>
-                        <button type="submit" class="btn btn-primary">Add Blog</button>
+                        <a class="btn btn-primary me-2" href="{{ route('dokter.list') }}">Back</a>
+                        <button type="submit" class="btn btn-primary">Add Jadwal</button>
                     </div>
                 </form>
             </div>
@@ -117,29 +110,4 @@
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/datepicker/datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-
-<!-- form editor -->
-<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#classic-editor'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-<script>
-    function validateFileSize(input) {
-        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
-        const fileSize = input.files[0].size;
-
-        if (fileSize > maxSize) {
-            document.getElementById('fileSizeError').innerHTML = 'File size exceeds the limit (2MB). Please choose another file.';
-            input.value = ''; // Reset input file
-        } else {
-            document.getElementById('fileSizeError').innerHTML = '';
-        }
-    }
-</script>
 @endsection

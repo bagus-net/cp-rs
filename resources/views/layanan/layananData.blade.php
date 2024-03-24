@@ -85,7 +85,7 @@ $bgImage3 = asset('Template/images/slider-layanan/bg3.jpg');
                         <a href="/services/fasilitas-layanan" class="d-inline-block">FASILITAS LAYANAN</a>
                     </h4>
 
-                    <span>RS Graha Hermine menyediakan fasilitas layanan yang lengkap dan berstandar international</span>
+                    <span>Puskesmas Cerme menyediakan fasilitas layanan yang lengkap dan berstandar international</span>
 
                 </div>
                 <a href="/services/fasilitas-layanan" class="btn btn-primary">Selengkapnya</a>

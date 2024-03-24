@@ -209,7 +209,7 @@
                             <h3 class="widget-title">Poliklinik</h3>
                             <ul class="list-arrow">
                                 @foreach($lyn as $lyns)
-                                <li><a href="/services/detail/{{ $lyns->slug }}" class="text-white">{{ $lyns->poliklinik }} </a></li>
+                                <li><a href="/services/layanan-poliklinik/detail/{{ $lyns->slug }}" class="text-white">{{ $lyns->poliklinik }} </a></li>
                                 @endforeach
                                 <li><a href="/services" class="text-white">Selengkapnya <i class="fas fa-arrow-right"></i></a></li>
                             </ul>

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg">
-                <h2 class="section-title">RS Graha Hermine</h2>
+                <h2 class="section-title">Puskesmas Cerme</h2>
                 <h3 class="section-sub-title">Our Partnership</h3>
             </div>
         </div>

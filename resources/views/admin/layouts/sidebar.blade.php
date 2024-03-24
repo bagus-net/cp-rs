@@ -51,7 +51,7 @@
                         <li><a href={{ route('blog.list') }}>@lang('Blog')</a></li>
                         <li><a href={{ route('foto.list') }}>@lang('Galeri')</a></li>
                         <li><a href={{ route('dokter.list') }}>@lang('Dokter')</a></li>
-                        <li><a href={{ route('partnership.list') }}>@lang('Partnership')</a></li>
+                        <li><a href={{ route('partner.list') }}>@lang('Partnership')</a></li>
                     </ul>
                 </li>
                 <li>

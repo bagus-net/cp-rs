@@ -20,7 +20,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-success" href="{{ route('partnership.create') }}">Create Partnership</a>
+                    <a class="btn btn-success" href="{{ route('partner.create') }}">Create Partnership</a>
 
                 </div>
             </div>
@@ -48,7 +48,7 @@
                                     <td><img src="{{ asset('storage/partnership-image/'.$item->slug. '/' .$item->image) }}" alt="" width="200"></td>
                                     <td>{{ $item->nama_partner}}</td>
                                     <td>
-                                        <a href="{{ route('partnership.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('partner.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                                         </form>
                                     </td>
                                 </tr>

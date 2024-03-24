@@ -104,7 +104,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="nav-item"><a class="nav-link" href="https://bit.ly/surveikepuasanpasienRSGH">Survei Kepuasan</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://sukma.jatimprov.go.id/fe/survey?idUser=1226">Survei Kepuasan</a></li>
 
                                     {{-- <li class="nav-item"><a class="nav-link" href="/e-library">E-Library</a></li> --}}
 

@@ -124,10 +124,10 @@ Route::get('jadwal_dokter/edit/{id}', [JadwalDokterController::class, 'edit'])->
 Route::post('jadwal_dokter/update/{id}', [JadwalDokterController::class, 'update'])->name('jadwal_dokter.update');
 
 //Page Partnership
-Route::get('partnership', [PartnershipController::class, 'index'])->name('partnership.list');
-Route::get('partnership/add', [PartnershipController::class, 'create'])->name('partnership.create');
-Route::post('partnership/store', [PartnershipController::class, 'store'])->name('partnership.add');
-Route::get('partnership/delete/{id}', [PartnershipController::class, 'destroy'])->name('partnership.destroy');
+Route::get('partner', [PartnershipController::class, 'index'])->name('partner.list');
+Route::get('partner/add', [PartnershipController::class, 'create'])->name('partner.create');
+Route::post('partner/store', [PartnershipController::class, 'store'])->name('partner.add');
+Route::get('partner/delete/{id}', [PartnershipController::class, 'destroy'])->name('partner.destroy');
 
 
 //------------------------------------------------------------------------------------------------------//
@@ -165,7 +165,7 @@ Route::post('/karir', [MainController::class, 'store'])->middleware('guest');
 Route::get('/galeri', [MainController::class, 'galeriIndex'])->middleware('guest');
 
 // partnership
-// Route::get('/partnership', [MainController::class, 'partnerIndex'])->middleware('guest');
+Route::get('/partnership', [MainController::class, 'partnerIndex'])->middleware('guest');
 
 // <-- Bagian Admin -->
 

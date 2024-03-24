@@ -33,7 +33,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('partnership.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
+                <form action="{{ route('partner.add') }}" method="POST" role="form" enctype="multipart/form-data" id="myForm">
                     {{ csrf_field() }}
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Nama Partnership:</label>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-12 text-end">
-                            <a class="btn btn-primary me-2" href="{{ route('partnership.list') }}">Back</a>
+                            <a class="btn btn-primary me-2" href="{{ route('partner.list') }}">Back</a>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#konfirmasiModal">Add Partnership</button>
                         </div>
                     </div>

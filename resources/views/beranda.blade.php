@@ -225,27 +225,6 @@ $bg = asset('Template');
     <!--/ Container end -->
 </section><!-- Content end -->
 
-<section class="subscribe no-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="subscribe-call-to-acton">
-                    <h3>Emergency Only?</h3>
-                    <h4>(0778) 363 127</h4>
-                </div>
-            </div><!-- Col end -->
-
-            <div class="col-lg-8">
-                <div class="ts-newsletter row align-items-center">
-                </div><!-- Newsletter end -->
-            </div><!-- Col end -->
-
-        </div><!-- Content row end -->
-    </div>
-    <!--/ Container end -->
-</section>
-<!--/ subscribe end -->
-
 <section id="news" class="news">
     <div class="container">
         <div class="row text-center">

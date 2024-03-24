@@ -46,9 +46,9 @@ class PartnershipController extends Controller
         $transaksi = Partnership::create($data);
 
         return redirect()
-            ->route('partnership.list')->with("success-add", "Data successfully added.");
+            ->route('partner.list')->with("success-add", "Data successfully added.");
         return redirect()
-            ->route('partnership.list')->with("failed", "Data failed to added.");
+            ->route('partner.list')->with("failed", "Data failed to added.");
     }
 
     public function destroy($id)

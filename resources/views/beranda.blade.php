@@ -49,7 +49,7 @@ $bg = asset('Template');
 <section class="social" id="social">
     <div class="row text-center">
         <div class="col-12">
-            <h2 class="section-title">Lokasi Puskesmas Cerme</h2>
+            <h2 class="section-title">Konten Puskesmas Cerme</h2>
 
         </div>
     </div>
@@ -64,21 +64,20 @@ $bg = asset('Template');
             <div class="card mb-3" style="max-width: 960px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{asset('Template')}}/images/logo-ultah.png" class="img-fluid rounded-start mx-2 my-2">
+                        <img src="{{asset('Template')}}/images/LOGO PKM CERME.png" class="img-fluid rounded-start mx-2 my-2">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h4 class="card-title">{{$link->title}}</h4>
-                            <p class="card-text">Lokasi Puskesmas Cerme
-                                Jl. Contoh Nomor 123
-                                Kota Contoh
-                                Provinsi Contoh 12345
-                            <div class="g-ytsubscribe" data-channelid="UCrVa5dDtzD7ARnE3TqN4Wig" data-layout="default" data-count="default"></div>
+                            <p class="card-text">Dalam penanggulangan Stunting, Puskesmas Cerme punya suatu inovasi, yaitu Ketuk Pintu Besan (Ketuk Pintu Bebaskan Stunting).
+
+                                Kegiatan Ketuk Pintu Besan yaitu kunjungan pada anak stunting dengan memberikan makanan tambahan berupa makanan seimbang dari sumber daya lokal , memberikan edukasi , konsultasi dan pembinaan kepada orang tua balita terkait stunting sehingga stunting bisa ditangani.
+                            <div class="g-ytsubscribe" data-channelid="UCw00kbcCQoRZA1kLuV9svOQ" data-layout="default" data-count="default"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="https://www.youtube.com/@RumahSakitGrahaHermine/featured" class="btn btn-primary">More Video</a>
+            <a href="https://www.youtube.com/@puskesmascerme2602/featured" class="btn btn-primary">More Video</a>
         </div>
         @endforeach
     </div>

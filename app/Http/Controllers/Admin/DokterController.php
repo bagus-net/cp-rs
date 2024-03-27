@@ -25,13 +25,12 @@ class DokterController extends Controller
         $latestDokter = Dokter::latest('slug')->first();
 
         if (!$latestDokter) {
-            return 'DOK001';
+            return 'DK001';
         }
 
         $lastNumber = intval(substr($latestDokter->slug, 2));
-        $newNumber = $lastNumber + 1;
-
-        return 'DOK' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        $newNumber = str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+        return 'DK' . $newNumber;
     }
 
     public function index()

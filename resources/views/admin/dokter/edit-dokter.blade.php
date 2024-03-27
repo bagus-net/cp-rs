@@ -119,7 +119,7 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
                         <div class="col-md-4">
-                            <input class="form-control" type="text" name="riwayat" value="{{ $find->riwayat }}" id="example-text-input" placeholder="Riwayat Dokter">
+                            <textarea id="classic-editor" class="form-control" name="riwayat" rows="10">{!! $find->riwayat !!}</textarea>
                         </div>
                     </div>
                 </form>
@@ -139,6 +139,17 @@
 <script src="{{ URL::asset('minible/assets/libs/jszip/jszip.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
+<!-- form editor -->
+<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#classic-editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

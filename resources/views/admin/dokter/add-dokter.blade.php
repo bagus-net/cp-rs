@@ -113,7 +113,8 @@
                     <div class="mb-3 row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Riwayat Dokter : </label>
                         <div class="col-md-10">
-                            <input class="form-control" type="text" name="riwayat" value="{{ old('riwayat') }}" id="example-text-input" placeholder="Riwayat Dokter">
+                            <input id="riwayat" type="hidden" name="riwayat" value="{{old('riwayat')}}">
+                            <textarea id="classic-editor" class="form-control" name="riwayat" rows="10"></textarea>
                         </div>
                     </div>
 
@@ -152,6 +153,17 @@
 <script src="{{ URL::asset('minible/assets/js/pages/datatables.init.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/datepicker/datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('minible/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+<!-- form editor -->
+<script src="{{ URL::asset('minible/assets/libs/ckeditor/ckeditor.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/libs/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ URL::asset('minible/assets/js/pages/form-editor.init.js') }}"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#classic-editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 <script>
     function validateFileSize(input) {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes

@@ -77,7 +77,8 @@
                         <div class="col-md-10">
                             <!-- <input class="form-control" type="text" name="body" value="{{ old('body') }}" id="example-text-input" placeholder="Content"> -->
                             <input id="body" type="hidden" name="body" value="{{old('body')}}">
-                            <div id="classic-editor" input="body"></div>
+                            <!-- <div id="classic-editor" input="body"></div> -->
+                            <textarea id="classic-editor" class="form-control" name="body" rows="10"></textarea>
                         </div>
                     </div>
 

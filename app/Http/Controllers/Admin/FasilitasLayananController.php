@@ -28,9 +28,8 @@ class FasilitasLayananController extends Controller
         }
 
         $lastNumber = intval(substr($latestFasilitas_Layanan->slug, 2));
-        $newNumber = $lastNumber + 1;
-
-        return 'FL' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        $newNumber = str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+        return 'FL' . $newNumber;
     }
     public function index()
     {

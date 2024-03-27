@@ -54,8 +54,8 @@
                                     <td>{{ $item->no_hp}}</td>
                                     <td>{{ $item->email}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('jadwal_dokter.list',$item->id) }}"><i class="bi bi-calendar-plus"></a>
-                                        <a class="btn btn-info" href="{{ route('dokter.show',$item->id) }}"><i class="uil uil-eye"></i></a>
+                                        <a class="btn btn-info" href="{{ route('jadwal_dokter.list',$item->id) }}"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                        <a class="btn btn-info" href="{{ route('dokter.show',$item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         <a href="{{ route('dokter.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
                                         <a href="{{ route('dokter.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                                         </form>

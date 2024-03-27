@@ -187,7 +187,7 @@
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="https://web.facebook.com/puskesmas.cerme?locale=id_ID" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a></li>
-                                    <li><a href="" aria-label="Youtube"><i class="fab fa-youtube text-white"></i></a>
+                                    <li><a href="https://www.youtube.com/@puskesmascerme2602/featured" aria-label="Youtube"><i class="fab fa-youtube text-white"></i></a>
                                     </li>
                                     <li><a href="" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a></li>
                                 </ul>

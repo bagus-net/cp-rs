@@ -26,9 +26,8 @@ class LowonganController extends Controller
         }
 
         $lastNumber = intval(substr($latestLowongan->slug, 2));
-        $newNumber = $lastNumber + 1;
-
-        return 'LKR' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        $newNumber = str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+        return 'LKR' . $newNumber;
     }
     public function index()
     {

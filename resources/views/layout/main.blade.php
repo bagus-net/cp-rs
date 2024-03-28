@@ -97,6 +97,7 @@
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/pustu/profil">Puskesmas Pembantu</a></li>
                                             <li><a href="/dokter/profil">Profil Dokter</a></li>
                                             <li><a href="/galeri">Galeri</a></li>
                                             <li><a href="/karir">Karir</a></li>
